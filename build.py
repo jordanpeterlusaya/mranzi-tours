@@ -105,8 +105,8 @@ TOURS = [
         "title": "Stone Town Tour",
         "cat": "heritage",
         "cat_label": "Heritage & Culture",
-        "image": "forodhani.webp",
-        "alt": "Seafront and historic buildings of Stone Town",
+        "image": "stone-town-doors.jpg",
+        "alt": "A carved wooden door in a Stone Town lane",
         "summary": "Historic landmarks of Stone Town, including the Anglican Cathedral.",
         "body": [
             "Stone Town carries the influence of many cultures. The walk visits important historic landmarks, including the Anglican Cathedral, and moves through the lanes that still shape daily life in the old city.",
@@ -121,8 +121,8 @@ TOURS = [
         "title": "Stone Town + Prison Island",
         "cat": "heritage",
         "cat_label": "Heritage & Culture",
-        "image": "combo-zanzibar-shore.webp",
-        "alt": "Zanzibar shoreline near the historic town",
+        "image": "sandbank-prison-island.webp",
+        "alt": "The approach to Prison Island across shallow water",
         "summary": "Stone Town’s narrow streets and coloured houses, paired with Prison Island.",
         "body": [
             "Stone Town is one of the most fascinating cities in Africa: a maze of narrow streets and coloured houses, with a rich history and culture.",
@@ -172,8 +172,8 @@ TOURS = [
         "title": "Safari Blue",
         "cat": "ocean",
         "cat_label": "Ocean & Islands",
-        "image": "nakupenda-island.webp",
-        "alt": "White sandbank in turquoise water",
+        "image": "dolphins-zanzibar.webp",
+        "alt": "Dolphins in the water off Zanzibar",
         "summary": "Menai Bay by boat: reefs, dolphins and a seafood lunch.",
         "body": [
             "Safari Blue spends the day among the islands of the Menai Bay Conservation Area.",
@@ -189,8 +189,8 @@ TOURS = [
         "title": "Stone Town Tour with Lunch",
         "cat": "heritage",
         "cat_label": "Heritage & Culture",
-        "image": "stonetown.webp",
-        "alt": "Historic Stone Town",
+        "image": "forodhani.webp",
+        "alt": "Food being prepared at the Forodhani night market",
         "summary": "The landmarks of Stone Town, with lunch included.",
         "body": [
             "This Stone Town walk includes the Anglican Cathedral, the slave markets, the Palace of the Sultans, Tippu Tip’s House, the Arabic Fort, Forodhani Park and the carved Zanzibar doors.",
@@ -362,8 +362,8 @@ TOURS = [
         "title": "Stone Town Voodoo Evening Tour",
         "cat": "heritage",
         "cat_label": "Heritage & Culture",
-        "image": "forodhani.webp",
-        "alt": "Stone Town in the warm light of late day",
+        "image": "stonetown.webp",
+        "alt": "A narrow lane in Stone Town",
         "summary": "An evening walk through Stone Town’s spiritual heritage.",
         "body": [
             "The Stone Town Voodoo Evening Tour is an after-dark walk through sites connected with the town’s spiritual and haunted heritage.",
@@ -395,8 +395,8 @@ TOURS = [
         "title": "Spice Tour + Swahili Cooking Lesson",
         "cat": "flavours",
         "cat_label": "Flavours & Lifestyle",
-        "image": "spice-farm.webp",
-        "alt": "Spice plants on a Zanzibar farm",
+        "image": "private-chef.webp",
+        "alt": "A plated meal",
         "summary": "From the spice farm to the market, then into a Swahili kitchen.",
         "body": [
             "The visit begins on a spice farm, with the ingredients used in Swahili cooking.",
@@ -413,8 +413,8 @@ TOURS = [
         "title": "Jambiani Village Cultural Tour",
         "cat": "heritage",
         "cat_label": "Heritage & Culture",
-        "image": "combo-zanzibar-palms.webp",
-        "alt": "Palm-lined beach on the Zanzibar coast",
+        "image": "village-tour.jpg",
+        "alt": "A walk with residents of a Zanzibar village",
         "summary": "Everyday Swahili life in Jambiani village.",
         "body": [
             "Jambiani is known for its cultural heritage along the east coast. The visit is a chance to experience the Swahili way of life in the village, with the people who live there.",
@@ -429,8 +429,8 @@ TOURS = [
         "title": "Tumbatu Cultural Tour",
         "cat": "heritage",
         "cat_label": "Heritage & Culture",
-        "image": "blue-lagoon.webp",
-        "alt": "Calm coastal water and a traditional boat",
+        "image": "combo-zanzibar-aerial.webp",
+        "alt": "The Zanzibar coast seen from the air",
         "summary": "The distinct culture of Tumbatu. A written permit is required.",
         "body": [
             "Tumbatu has a distinct and comparatively isolated community. This cultural visit is about that place and the people who live there.",
@@ -446,8 +446,8 @@ TOURS = [
         "title": "Prison Island + Sandbank with BBQ",
         "cat": "ocean",
         "cat_label": "Ocean & Islands",
-        "image": "nakupenda-island.webp",
-        "alt": "A sandbank picnic setting in shallow turquoise water",
+        "image": "sandbank-prison-island.webp",
+        "alt": "Shallow water and sand near Prison Island",
         "summary": "Prison Island’s 1893 history, then a sandbank barbecue.",
         "body": [
             "Prison Island’s prison dates to 1893 and later served as a quarantine hospital. The visit includes the remains of that history and the tortoises.",
@@ -480,8 +480,8 @@ TOURS = [
         "title": "Mnemba, Aquarium + Kendwa Beach",
         "cat": "ocean",
         "cat_label": "Ocean & Islands",
-        "image": "hero-zanzibar-luxury.webp",
-        "alt": "A dhow beside a palm beach on clear water",
+        "image": "blue-lagoon.webp",
+        "alt": "Snorkellers above a coral reef",
         "summary": "A full day: Mnemba Atoll, the Nungwi aquarium and Kendwa Beach.",
         "body": [
             "This full-day tour is built around the waters of Mnemba Island Atoll.",
@@ -498,8 +498,8 @@ TOURS = [
         "title": "Stone Town, Spice Tour + Prison Island",
         "cat": "heritage",
         "cat_label": "Heritage & Culture",
-        "image": "combo-zanzibar-palms.webp",
-        "alt": "Coastal palms on Zanzibar",
+        "image": "spice-farm.webp",
+        "alt": "Spice plants on a Zanzibar farm",
         "summary": "Historic Stone Town, a spice farm and Prison Island in one arrangement.",
         "body": [
             "This combination brings together the historic city of Stone Town, a spice tour and Prison Island.",
@@ -528,6 +528,46 @@ def meta_line(tour):
     if not parts:
         return ""
     return f'<p class="pkg-meta">{" · ".join(parts)}</p>'
+
+
+WA_ICON = (
+    '<svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">'
+    '<path fill="currentColor" d="M12.04 2C6.58 2 2.15 6.4 2.15 11.83c0 1.74.46 3.44 1.34 4.94L2 22l5.39-1.4a10 10 0 0 0 4.65 1.18h.01c5.46 0 9.89-4.4 9.89-9.83C21.94 6.4 17.5 2 12.04 2zm5.76 14.05c-.24.68-1.4 1.3-1.94 1.38-.5.07-1.12.1-1.81-.11-.41-.13-.95-.31-1.64-.61-2.88-1.25-4.76-4.15-4.9-4.34-.14-.2-1.16-1.54-1.16-2.94s.73-2.08 1-2.37c.24-.28.64-.41 1.02-.41.12 0 .23 0 .33.01.3.01.44.03.64.5.24.57.81 1.97.88 2.11.07.14.12.31.02.49-.09.18-.14.29-.27.45-.14.16-.29.35-.41.47-.14.13-.28.28-.12.54.16.26.7 1.16 1.51 1.88 1.04.92 1.91 1.21 2.18 1.35.27.13.43.11.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.22.6-.13.24.09 1.54.73 1.8.86.27.13.44.2.51.31.06.11.06.64-.18 1.32z"/>'
+    "</svg>"
+)
+
+
+def experience_options(selected=""):
+    choices = ["A private journey", "A private safari, to discuss", "A coastal stay, to discuss"]
+    choices += [tour["title"] for tour in TOURS]
+    options = []
+    for choice in choices:
+        selected_attr = " selected" if choice == selected else ""
+        options.append(f"<option{selected_attr}>{e(choice)}</option>")
+    return "".join(options)
+
+
+def book_button(label, experience="", classes="btn btn-wa"):
+    return (
+        f'<button type="button" class="{classes}" data-book data-experience="{e(experience)}">'
+        f"{WA_ICON}{e(label)}</button>"
+    )
+
+
+def booking_fields(selected=""):
+    return f"""
+      <label class="field"><span>Name</span><input name="name" required autocomplete="name"></label>
+      <label class="field"><span>Experience</span><select name="experience" required>{experience_options(selected)}</select></label>
+      <label class="field"><span>Dates</span><input name="dates" required placeholder="Arrival and departure"></label>
+      <label class="field"><span>Group size</span><input name="group" required inputmode="numeric" placeholder="Number of guests"></label>
+      <label class="field"><span>Pickup</span><input name="pickup" required placeholder="Hotel or area in Zanzibar"></label>
+      <label class="field"><span>Note</span><textarea name="note" placeholder="Pace, interests, anything we should know"></textarea></label>
+      <button class="btn btn-wa" type="submit">{WA_ICON}Send booking on WhatsApp</button>
+      <p class="form-note">WhatsApp opens only after these details are filled in. We confirm availability in the chat. Nothing is paid on this page.</p>"""
+
+
+def booking_form(selected=""):
+    return f'<form class="booking-form" data-enquiry data-phone="{PHONE}">{booking_fields(selected)}</form>'
 
 
 DIMS = {
@@ -563,6 +603,9 @@ DIMS = {
     "charity-community.webp": (1200, 900),
     "yacht-charter.webp": (1280, 960),
     "mnemba.webp": (1280, 961),
+    "stone-town-doors.jpg": (830, 830),
+    "private-chef.webp": (1280, 853),
+    "prison-island.webp": (1280, 353),
 }
 
 
@@ -584,7 +627,6 @@ def header(prefix, current):
     for key, label, href in NAV:
         current_attr = ' aria-current="page"' if key == current else ""
         links.append(f'<a href="{prefix}{href}"{current_attr}>{label}</a>')
-    book = e(wa(GENERAL))
     return f"""
   <a class="skip" href="#main">Skip to content</a>
   <header class="site-header" data-header>
@@ -596,14 +638,13 @@ def header(prefix, current):
       <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav" aria-label="Open menu"><span></span><span></span><span></span></button>
       <nav class="nav" id="nav" data-nav>
         {''.join(links)}
-        <a class="nav-enquire" href="{book}">Enquire</a>
+        {book_button("WhatsApp", "A private journey", "btn btn-wa nav-wa")}
       </nav>
     </div>
   </header>"""
 
 
-def footer(prefix, enquire=None):
-    href = enquire or e(wa(GENERAL))
+def footer(prefix, experience=""):
     return f"""
   <footer class="site-footer">
     <div class="wrap foot-grid">
@@ -632,7 +673,7 @@ def footer(prefix, enquire=None):
       <div>
         <h3>Contact</h3>
         <ul>
-          <li><a href="{e(wa(GENERAL))}">WhatsApp {PHONE_DISPLAY}</a></li>
+          <li><button type="button" class="foot-wa" data-book data-experience="{e(experience or "A private journey")}">{WA_ICON}WhatsApp {PHONE_DISPLAY}</button></li>
           <li><a href="tel:{PHONE}">Call {PHONE_DISPLAY}</a></li>
           <li><a href="mailto:{EMAIL}">{EMAIL}</a></li>
           <li>Zanzibar, Tanzania</li>
@@ -643,7 +684,17 @@ def footer(prefix, enquire=None):
       <p class="copy">© <span id="year">2026</span> Mranzi Tours &amp; Safaris. Zanzibar, Tanzania.</p>
     </div>
   </footer>
-  <a class="dock" href="{href}">Enquire on WhatsApp</a>
+  <button type="button" class="dock" data-book data-experience="{e(experience)}">{WA_ICON}Enquire on WhatsApp</button>
+  <dialog class="booking" data-booking>
+    <form class="booking-form" data-enquiry data-phone="{PHONE}">
+      <div class="booking-head">
+        <p class="eyebrow">Booking</p>
+        <button class="booking-close" type="button" data-booking-close>Close</button>
+      </div>
+      <h2>Your details</h2>
+      {booking_fields(experience)}
+    </form>
+  </dialog>
   <script src="{prefix}js/site.js"></script>"""
 
 
@@ -680,7 +731,7 @@ def document(title, description, path, image, depth, current, main, schema="", e
 <body>
 {header(prefix, current)}
 {main}
-{footer(prefix, enquire)}
+{footer(prefix, enquire or "")}
 </body>
 </html>
 """
@@ -697,7 +748,6 @@ def home():
   </script>"""
     packages = []
     for tour in TOURS:
-        link = e(tour_wa(tour["title"]))
         packages.append(f"""
         <article class="pkg" data-cat="{tour['cat']}">
           <a class="pkg-media" href="experiences/{tour['slug']}.html">{img(tour['image'], tour['alt'], "")}</a>
@@ -708,14 +758,16 @@ def home():
             {meta_line(tour)}
             <div class="pkg-actions">
               <a class="text-link" href="experiences/{tour['slug']}.html">View details</a>
-              <a class="btn btn-solid" href="{link}">Enquire</a>
+              {book_button("Enquire", tour["title"])}
             </div>
           </div>
         </article>""")
     main = f"""
   <main id="main">
     <section class="hero" aria-label="Introduction">
-      <img class="hero-media" src="assets/hero-zanzibar-luxury.webp" alt="A dhow on clear water beside a white sand beach in Zanzibar" width="1280" height="720">
+      <video class="hero-media" autoplay muted loop playsinline poster="assets/hero-poster.webp" width="720" height="1280">
+        <source src="assets/video/hero.mp4" type="video/mp4">
+      </video>
       <div class="hero-shade"></div>
       <div class="wrap hero-content">
         <h1>Discover.<br>Experience.<br>Give Back.</h1>
@@ -763,7 +815,6 @@ def catalog():
     rows = []
     for index, tour in enumerate(TOURS):
         flip = " is-flip" if index % 2 else ""
-        link = e(tour_wa(tour["title"]))
         rows.append(f"""
         <article class="exp-row{flip}" data-cat="{tour['cat']}">
           <a class="frame" href="{tour['slug']}.html">{img(tour['image'], tour['alt'], "../")}</a>
@@ -774,7 +825,7 @@ def catalog():
             {meta_line(tour)}
             <div class="pkg-actions">
               <a class="text-link" href="{tour['slug']}.html">View details</a>
-              <a class="btn btn-solid" href="{link}">Enquire</a>
+              {book_button("Enquire", tour["title"])}
             </div>
           </div>
         </article>""")
@@ -825,7 +876,6 @@ def detail(tour, index):
             <div class="frame">{img(item['image'], item['alt'], "../")}</div>
             <h3>{e(item['title'])}</h3>
           </a>""")
-    link = e(tour_wa(tour["title"]))
     main = f"""
   <main id="main">
     <header class="page-hero">
@@ -844,9 +894,8 @@ def detail(tour, index):
           {paragraphs}
         </div>
         <aside class="exp-aside">
-          <p class="eyebrow">Enquire</p>
-          <p>Share your dates, pickup point and group size. We confirm the arrangement on WhatsApp.</p>
-          <a class="btn btn-solid" href="{link}">Enquire</a>
+          <p class="eyebrow">Booking</p>
+          {booking_form(tour["title"])}
           <ul class="aside-contact">
             <li><a href="tel:{PHONE}">{PHONE_DISPLAY}</a></li>
             <li><a href="mailto:{EMAIL}">{EMAIL}</a></li>
@@ -871,13 +920,11 @@ def detail(tour, index):
         1,
         "experiences",
         main,
-        enquire=link,
+        enquire=tour["title"],
     )
 
 
 def destinations():
-    book = e(wa("Hello Mranzi Tours & Safaris, I would like to discuss a private safari in Tanzania alongside time in Zanzibar."))
-    stay = e(wa("Hello Mranzi Tours & Safaris, I would like to discuss a coastal stay as part of my journey."))
     main = f"""
   <main id="main">
     <header class="page-hero">
@@ -916,7 +963,7 @@ def destinations():
         <div>
           <p class="lede">Mranzi is based in the island experiences of this collection. A private safari on the Tanzanian mainland can be discussed as part of a wider journey: your dates, your pace, and the wildlife you hope to meet.</p>
           <p class="lede" style="margin-top:1rem">We do not publish set safari prices here. The plan is agreed with you on WhatsApp.</p>
-          <a class="btn btn-solid" style="margin-top:1.5rem" href="{book}">Discuss a private safari</a>
+          {book_button("Discuss a private safari", "A private safari, to discuss", "btn btn-wa")}
         </div>
       </div>
       <div class="wrap dest-row" style="margin-top:2.5rem">
@@ -932,7 +979,7 @@ def destinations():
           <p class="eyebrow">Stays</p>
           <h2>Where the days begin and end.</h2>
           <p class="lede">Coastal villas and quiet beach stays can be discussed with the excursions, so the base suits the pace of the journey. We confirm what is available for your dates rather than listing rooms or rates on this site.</p>
-          <a class="btn" style="margin-top:1.5rem" href="{stay}">Ask about a stay</a>
+          {book_button("Ask about a stay", "A coastal stay, to discuss", "btn btn-wa")}
         </div>
       </div>
     </section>
@@ -1004,9 +1051,6 @@ def about():
 
 
 def contact():
-    options = ['<option>A private journey</option>', '<option>A private safari, to discuss</option>', '<option>A coastal stay, to discuss</option>']
-    for tour in TOURS:
-        options.append(f"<option>{e(tour['title'])}</option>")
     main = f"""
   <main id="main">
     <header class="page-hero">
@@ -1024,21 +1068,13 @@ def contact():
           <p class="eyebrow">Enquiry</p>
           <h2 style="font-size:clamp(2.8rem,4vw,4.2rem)">Tell us the dates, and what you hope to see.</h2>
           <ul class="contact-list">
-            <li><a href="{e(wa(GENERAL))}">WhatsApp {PHONE_DISPLAY}</a></li>
+            <li><button type="button" class="foot-wa" data-book data-experience="A private journey">{WA_ICON}WhatsApp {PHONE_DISPLAY}</button></li>
             <li><a href="tel:{PHONE}">Call {PHONE_DISPLAY}</a></li>
             <li><a href="mailto:{EMAIL}">{EMAIL}</a></li>
             <li>Zanzibar, Tanzania · mranzitours.co.tz</li>
           </ul>
         </div>
-        <form data-enquiry data-phone="{PHONE}">
-          <label class="field"><span>Name</span><input name="name" required autocomplete="name"></label>
-          <label class="field"><span>Experience</span><select name="experience">{''.join(options)}</select></label>
-          <label class="field"><span>Dates</span><input name="dates" placeholder="Arrival and departure"></label>
-          <label class="field"><span>Group size</span><input name="group" inputmode="numeric" placeholder="Number of guests"></label>
-          <label class="field"><span>Note</span><textarea name="note" placeholder="Hotel area, interests, pace"></textarea></label>
-          <button class="btn btn-solid" type="submit">Send on WhatsApp</button>
-          <p class="form-note">This opens WhatsApp with your note. We confirm availability and the rate in the chat. Nothing is paid on this page.</p>
-        </form>
+        {booking_form("A private journey")}
       </div>
     </section>
   </main>"""

@@ -7,12 +7,11 @@
   var nav = document.querySelector("[data-nav]");
   var video = document.querySelector("video.hero-media");
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var wa = document.querySelector(".wa-float");
+  var booking = document.querySelector("[data-booking]");
 
   function onScroll() {
     if (!header) return;
     header.classList.toggle("is-solid", window.scrollY > 24);
-    if (wa) wa.classList.toggle("is-on", window.scrollY > window.innerHeight * 0.72);
   }
 
   onScroll();
@@ -36,17 +35,9 @@
     });
   }
 
-  if (video && !reduced) {
-    var ticking = false;
-    window.addEventListener("scroll", function () {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(function () {
-        var y = Math.min(window.scrollY, window.innerHeight);
-        video.style.transform = "translate3d(0," + y * 0.15 + "px,0) scale(1.06)";
-        ticking = false;
-      });
-    }, { passive: true });
+  if (video && reduced) {
+    video.pause();
+    video.removeAttribute("autoplay");
   }
 
   if ("IntersectionObserver" in window && !reduced) {
@@ -90,22 +81,55 @@
     apply(initial);
   }
 
-  var form = document.querySelector("[data-enquiry]");
-  if (form) {
+  function closeNav() {
+    if (!nav || !toggle) return;
+    nav.classList.remove("is-open");
+    if (header) header.classList.remove("is-open");
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Open menu");
+    document.body.style.overflow = "";
+  }
+
+  document.addEventListener("click", function (event) {
+    var closer = event.target.closest("[data-booking-close]");
+    if (closer) {
+      var dialog = closer.closest("dialog");
+      if (dialog) dialog.close();
+      return;
+    }
+    var trigger = event.target.closest("[data-book]");
+    if (!trigger || !booking) return;
+    closeNav();
+    var exp = trigger.getAttribute("data-experience") || "";
+    var select = booking.querySelector("[name=experience]");
+    if (select && exp) select.value = exp;
+    if (typeof booking.showModal === "function") booking.showModal();
+  });
+
+  if (booking) {
+    booking.addEventListener("click", function (event) {
+      if (event.target === booking) booking.close();
+    });
+  }
+
+  document.querySelectorAll("[data-enquiry]").forEach(function (form) {
     form.addEventListener("submit", function (event) {
       event.preventDefault();
       var data = new FormData(form);
       var lines = [
-        "Hello Mranzi Tours & Safaris, I would like to enquire.",
+        "Hello Mranzi Tours & Safaris, I would like to book.",
         "",
         "Name: " + (data.get("name") || "").trim(),
         "Experience: " + (data.get("experience") || "").trim(),
-        "Dates: " + ((data.get("dates") || "").trim() || "To discuss"),
-        "Group size: " + ((data.get("group") || "").trim() || "To discuss"),
+        "Dates: " + (data.get("dates") || "").trim(),
+        "Group size: " + (data.get("group") || "").trim(),
+        "Pickup: " + (data.get("pickup") || "").trim(),
         "Note: " + ((data.get("note") || "").trim() || "—")
       ];
       var phone = form.getAttribute("data-phone");
       window.open("https://wa.me/" + phone + "?text=" + encodeURIComponent(lines.join("\n")), "_blank", "noopener");
+      var dialog = form.closest("dialog");
+      if (dialog && dialog.open) dialog.close();
     });
-  }
+  });
 })();
