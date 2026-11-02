@@ -5,7 +5,7 @@
   var header = document.querySelector("[data-header]");
   var toggle = document.querySelector("[data-nav-toggle]");
   var nav = document.querySelector("[data-nav]");
-  var video = document.querySelector(".hero-media");
+  var video = document.querySelector("video.hero-media");
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var wa = document.querySelector(".wa-float");
 

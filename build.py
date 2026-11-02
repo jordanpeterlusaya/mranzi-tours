@@ -395,8 +395,8 @@ TOURS = [
         "title": "Spice Tour + Swahili Cooking Lesson",
         "cat": "flavours",
         "cat_label": "Flavours & Lifestyle",
-        "image": "village-tour.jpg",
-        "alt": "Local produce at a Zanzibar market",
+        "image": "spice-farm.webp",
+        "alt": "Spice plants on a Zanzibar farm",
         "summary": "From the spice farm to the market, then into a Swahili kitchen.",
         "body": [
             "The visit begins on a spice farm, with the ingredients used in Swahili cooking.",
@@ -480,8 +480,8 @@ TOURS = [
         "title": "Mnemba, Aquarium + Kendwa Beach",
         "cat": "ocean",
         "cat_label": "Ocean & Islands",
-        "image": "nungwi-kendwa.webp",
-        "alt": "Palm beach at Kendwa on Zanzibar’s north coast",
+        "image": "hero-zanzibar-luxury.webp",
+        "alt": "A dhow beside a palm beach on clear water",
         "summary": "A full day: Mnemba Atoll, the Nungwi aquarium and Kendwa Beach.",
         "body": [
             "This full-day tour is built around the waters of Mnemba Island Atoll.",
@@ -512,6 +512,23 @@ TOURS = [
         ],
     },
 ]
+
+for tour in TOURS:
+    source = " ".join(tour["body"] + tour["highlights"]).lower()
+    if "full day" in source or "full-day" in source:
+        tour["duration"] = "Full day"
+
+
+def meta_line(tour):
+    parts = []
+    if tour.get("duration"):
+        parts.append(e(tour["duration"]))
+    if tour.get("price"):
+        parts.append(e(tour["price"]))
+    if not parts:
+        return ""
+    return f'<p class="pkg-meta">{" · ".join(parts)}</p>'
+
 
 DIMS = {
     "stonetown.webp": (1280, 720),
@@ -579,13 +596,14 @@ def header(prefix, current):
       <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav" aria-label="Open menu"><span></span><span></span><span></span></button>
       <nav class="nav" id="nav" data-nav>
         {''.join(links)}
-        <a class="btn btn-book" href="{book}">Book your journey</a>
+        <a class="nav-enquire" href="{book}">Enquire</a>
       </nav>
     </div>
   </header>"""
 
 
-def footer(prefix):
+def footer(prefix, enquire=None):
+    href = enquire or e(wa(GENERAL))
     return f"""
   <footer class="site-footer">
     <div class="wrap foot-grid">
@@ -625,11 +643,11 @@ def footer(prefix):
       <p class="copy">© <span id="year">2026</span> Mranzi Tours &amp; Safaris. Zanzibar, Tanzania.</p>
     </div>
   </footer>
-  <a class="wa-float" href="{e(wa(GENERAL))}">WhatsApp</a>
+  <a class="dock" href="{href}">Enquire on WhatsApp</a>
   <script src="{prefix}js/site.js"></script>"""
 
 
-def document(title, description, path, image, depth, current, main, schema=""):
+def document(title, description, path, image, depth, current, main, schema="", enquire=None):
     prefix = "../" * depth
     canonical = SITE + path
     og = f"{SITE}/assets/{image}"
@@ -662,7 +680,7 @@ def document(title, description, path, image, depth, current, main, schema=""):
 <body>
 {header(prefix, current)}
 {main}
-{footer(prefix)}
+{footer(prefix, enquire)}
 </body>
 </html>
 """
@@ -674,182 +692,64 @@ def img(name, alt, prefix, lazy=True):
 
 
 def home():
-    book = e(wa(GENERAL))
     schema = """<script type="application/ld+json">
   {"@context":"https://schema.org","@type":"TravelAgency","name":"Mranzi Tours & Safaris","url":"https://mranzitours.co.tz/","email":"info@mranzitours.co.tz","telephone":"+255777466868","address":{"@type":"PostalAddress","addressLocality":"Zanzibar","addressCountry":"TZ"},"areaServed":["Zanzibar","Tanzania"]}
   </script>"""
-    experiences = [
-        ("sig-a", "combo-zanzibar-aerial.webp", "Aerial view of Zanzibar’s turquoise coast", "Zanzibar Island Experiences", "Stone Town, spice farms, Prison Island and Jozani, taken singly or composed together.", "experiences/index.html"),
-        ("sig-b", "combo-zanzibar-dhow.webp", "Traditional dhow in shallow turquoise water", "Private Boat Excursions", "Dhow sailing, Safari Blue, Mnemba and sandbank days on the Indian Ocean.", "experiences/index.html?cat=ocean"),
-        ("sig-c", "safari-giraffes-kilimanjaro.webp", "Giraffes on a Tanzanian plain with Kilimanjaro beyond", "Safari Adventures", "Mainland wildlife, arranged privately around your dates.", "destinations.html#safari"),
-        ("sig-d", "nakupenda-island.webp", "White sandbank in clear shallow water", "Beach & Coastal Escapes", "Kendwa, Nungwi, The Rock and quiet sandbanks.", "experiences/the-rock.html"),
-        ("sig-e", "stonetown.webp", "Historic Stone Town", "Cultural Experiences", "Villages, Swahili cooking, seaweed farming and the living heritage of the coast.", "experiences/index.html?cat=heritage"),
-        ("sig-f", "luxury-villa.webp", "A quiet luxury villa beside tropical planting", "Coastal Stays", "Villas and quiet coastal stays, matched to the journey and confirmed with us directly.", "destinations.html#stays"),
-    ]
-    cards = []
-    for cls, image, alt, title, text, href in experiences:
-        cards.append(f"""
-        <a class="sig {cls}" href="{href}">
-          {img(image, alt, "", lazy=cls != "sig-a")}
-          <span class="sig-shade"></span>
-          <span class="sig-copy">
-            <h3>{title}</h3>
-            <p>{text}</p>
-            <span class="text-link">Discover experience</span>
-          </span>
-        </a>""")
+    packages = []
+    for tour in TOURS:
+        link = e(tour_wa(tour["title"]))
+        packages.append(f"""
+        <article class="pkg" data-cat="{tour['cat']}">
+          <a class="pkg-media" href="experiences/{tour['slug']}.html">{img(tour['image'], tour['alt'], "")}</a>
+          <div class="pkg-copy">
+            <p class="eyebrow">{e(tour['cat_label'])}</p>
+            <h3><a href="experiences/{tour['slug']}.html">{e(tour['title'])}</a></h3>
+            <p>{e(tour['summary'])}</p>
+            {meta_line(tour)}
+            <div class="pkg-actions">
+              <a class="text-link" href="experiences/{tour['slug']}.html">View details</a>
+              <a class="btn btn-solid" href="{link}">Enquire</a>
+            </div>
+          </div>
+        </article>""")
     main = f"""
   <main id="main">
     <section class="hero" aria-label="Introduction">
-      <video class="hero-media" autoplay muted loop playsinline poster="assets/hero-poster.webp">
-        <source src="assets/video/hero.mp4" type="video/mp4">
-      </video>
+      <img class="hero-media" src="assets/hero-zanzibar-luxury.webp" alt="A dhow on clear water beside a white sand beach in Zanzibar" width="1280" height="720">
       <div class="hero-shade"></div>
       <div class="wrap hero-content">
-        <p class="eyebrow">Tanzania &amp; Zanzibar · Private experiences</p>
-        <h1>Discover Africa.<br>Experience the Extraordinary.</h1>
-        <p class="lede">Exceptional journeys, thoughtfully curated across the breathtaking landscapes and timeless beauty of Zanzibar and Tanzania.</p>
-        <div class="hero-actions">
-          <a class="btn btn-ivory" href="experiences/index.html">Explore our experiences</a>
-          <a class="btn" href="{book}">Plan your journey</a>
-        </div>
+        <h1>Discover.<br>Experience.<br>Give Back.</h1>
+        <p class="lede">Private journeys across Zanzibar and Tanzania.</p>
+        <a class="btn btn-ivory" href="#experiences">Explore Experiences</a>
       </div>
     </section>
-
-    <section class="section intro">
-      <div class="wrap intro-grid reveal">
-        <h2>More Than a Journey. A World of Experiences.</h2>
-        <div>
-          <p class="lede">From the winding heritage lanes of Stone Town to fragrant spice farms and turquoise marine escapes, Zanzibar invites you to slow down, explore and connect.</p>
-          <p class="lede" style="margin-top:1rem">Mranzi Tours &amp; Safaris arranges private experiences around that invitation. One excursion, or several composed into a journey. You tell us what draws you, your dates and the size of your group. We shape the day around it.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" style="padding-top:0">
+    <section class="section" id="experiences">
       <div class="wrap">
-        <div class="section-head reveal">
-          <p class="eyebrow">Signature experiences</p>
-          <h2>The island, met properly.</h2>
+        <div class="section-head">
+          <p class="eyebrow">The collection</p>
+          <h2>Experiences</h2>
         </div>
-        <div class="sig-grid reveal">
-          {''.join(cards)}
+        <div class="filters" data-filters>
+          <button type="button" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" data-filter="heritage">Heritage</button>
+          <button type="button" data-filter="nature">Nature</button>
+          <button type="button" data-filter="ocean">Ocean</button>
+          <button type="button" data-filter="flavours">Flavours</button>
+        </div>
+        <div class="pkg-list">
+          {''.join(packages)}
         </div>
       </div>
     </section>
-
-    <section class="section" id="destination">
+    <section class="give">
       <div class="wrap">
-        <div class="section-head reveal">
-          <p class="eyebrow">The destination</p>
-          <h2>Zanzibar and the country beyond it.</h2>
-        </div>
-        <div class="dest-layout reveal">
-          <figure class="dest-main">
-            <div class="frame">{img("mnemba-island.webp", "Mnemba Island surrounded by reef", "")}</div>
-            <figcaption>
-              <h3>Turquoise water</h3>
-              <p>Reefs, sandbanks and the long colour of the Indian Ocean, from Mnemba to Menai Bay.</p>
-            </figcaption>
-          </figure>
-          <div class="dest-stack">
-            <figure>
-              <div class="frame">{img("nakupenda-island.webp", "White sandbank in shallow water", "")}</div>
-              <figcaption>
-                <h3>White sand</h3>
-                <p>Sandbanks and quiet beaches, reached by boat and left to the tide.</p>
-              </figcaption>
-            </figure>
-            <figure>
-              <div class="frame">{img("combo-zanzibar-dhow.webp", "Traditional dhow under sail", "")}</div>
-              <figcaption>
-                <h3>Dhows</h3>
-                <p>Traditional boats on Menai Bay and along the west coast, including sunset hours.</p>
-              </figcaption>
-            </figure>
-          </div>
-        </div>
-        <div class="dest-row reveal">
-          <figure>
-            <div class="frame">{img("stonetown.webp", "Stone Town’s historic streets", "")}</div>
-            <figcaption>
-              <h3>Stone Town</h3>
-              <p>A UNESCO World Heritage city of carved doors, courtyards and narrow lanes.</p>
-            </figcaption>
-          </figure>
-          <figure>
-            <div class="frame">{img("tz-lion.webp", "Lion in golden grass", "")}</div>
-            <figcaption>
-              <h3>Wildlife</h3>
-              <p>Jozani’s red colobus on the island, and the great animals of the mainland when a safari is part of the plan.</p>
-            </figcaption>
-          </figure>
-          <figure>
-            <div class="frame">{img("safari-acacia-sunset.webp", "Acacia trees at sunset on the savanna", "")}</div>
-            <figcaption>
-              <h3>Safari country</h3>
-              <p>Open landscapes beyond the island, discussed privately and arranged to your dates.</p>
-            </figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <section class="section sand bespoke">
-      <div class="wrap bespoke-grid reveal">
-        <h2>Your Journey. Your Pace. Your Africa.</h2>
-        <div>
-          <p class="lede">Every journey can be tailored to what you want to see, how you like to spend the hours, and the size of your party. A single private excursion. A combination of heritage, forest and ocean. Or a longer plan that includes the mainland.</p>
-          <p class="lede" style="margin-top:1rem">Tell us the dates, where you are staying, and what the days should feel like. We confirm the arrangement with you directly.</p>
-          <a class="btn btn-solid" style="margin-top:1.6rem" href="{book}">Create your private journey</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <p class="eyebrow">Discover the difference</p>
-          <h2>Hospitality, kept personal.</h2>
-        </div>
-        <div class="diff-list reveal">
-          <article class="diff-item"><span>01</span><h3>Private guides</h3><p>Days led for your group, with room to linger where the place asks for it.</p></article>
-          <article class="diff-item"><span>02</span><h3>Curated experiences</h3><p>A considered collection of island excursions, from Stone Town to the reefs, rather than a crowded menu.</p></article>
-          <article class="diff-item"><span>03</span><h3>Personal hospitality</h3><p>Dates, pickup and group size discussed with you before the day begins.</p></article>
-          <article class="diff-item"><span>04</span><h3>Local connections</h3><p>Spice farms, villages, seaweed farmers and the communities who keep these places alive.</p></article>
-          <article class="diff-item"><span>05</span><h3>Seamless planning</h3><p>One conversation on WhatsApp covers the excursion, the combination, or the wider journey.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section sand purpose">
-      <div class="wrap purpose-grid reveal">
-        <div class="purpose-media">{img("charity-community.webp", "Children studying in a community classroom", "")}</div>
-        <div>
-          <p class="eyebrow">Giving back</p>
-          <h2>Travel With Purpose.</h2>
-          <p class="stat">40%</p>
-          <p class="lede">Forty percent of tour revenue is contributed to charitable initiatives in the local Zanzibar community. The journeys are for our guests. A meaningful share of them stays with the island that makes them possible.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="finale">
-      {img("hero-zanzibar-luxury.webp", "Turquoise Zanzibar coast", "", lazy=False)}
-      <div class="shade"></div>
-      <div class="wrap finale-copy">
-        <p class="eyebrow">Begin</p>
-        <h2>Your African Story Begins Here.</h2>
-        <p class="lede">Let us create an extraordinary journey worth remembering.</p>
-        <div class="finale-actions">
-          <a class="btn btn-ivory" href="{book}">Plan your journey</a>
-        </div>
+        <p>Forty percent of tour revenue is contributed to charitable initiatives in the local Zanzibar community.</p>
       </div>
     </section>
   </main>"""
     return document(
         "Mranzi Tours & Safaris | Private Zanzibar & Tanzania",
-        "Private Zanzibar experiences and tailored Tanzania journeys with Mranzi Tours & Safaris. Enquire on WhatsApp.",
+        "Private Zanzibar experiences with Mranzi Tours & Safaris. View each journey and enquire on WhatsApp.",
         "/",
         "hero-zanzibar-luxury.webp",
         0,
@@ -863,6 +763,7 @@ def catalog():
     rows = []
     for index, tour in enumerate(TOURS):
         flip = " is-flip" if index % 2 else ""
+        link = e(tour_wa(tour["title"]))
         rows.append(f"""
         <article class="exp-row{flip}" data-cat="{tour['cat']}">
           <a class="frame" href="{tour['slug']}.html">{img(tour['image'], tour['alt'], "../")}</a>
@@ -870,7 +771,11 @@ def catalog():
             <p class="eyebrow">{e(tour['cat_label'])}</p>
             <h2><a href="{tour['slug']}.html">{e(tour['title'])}</a></h2>
             <p>{e(tour['summary'])}</p>
-            <a class="text-link" href="{tour['slug']}.html">Discover experience</a>
+            {meta_line(tour)}
+            <div class="pkg-actions">
+              <a class="text-link" href="{tour['slug']}.html">View details</a>
+              <a class="btn btn-solid" href="{link}">Enquire</a>
+            </div>
           </div>
         </article>""")
     main = f"""
@@ -929,6 +834,7 @@ def detail(tour, index):
       <div class="wrap">
         <p class="crumbs"><a href="index.html">Experiences</a> · {e(tour['cat_label'])}</p>
         <h1>{e(tour['title'])}</h1>
+        {meta_line(tour)}
       </div>
     </header>
     <section class="section" style="padding-top:0">
@@ -939,8 +845,8 @@ def detail(tour, index):
         </div>
         <aside class="exp-aside">
           <p class="eyebrow">Enquire</p>
-          <p>Tell us your dates, pickup point and group size. We confirm the arrangement on WhatsApp. Rates are not listed here; they are agreed for your party.</p>
-          <a class="btn btn-solid" href="{link}">Enquire on WhatsApp</a>
+          <p>Share your dates, pickup point and group size. We confirm the arrangement on WhatsApp.</p>
+          <a class="btn btn-solid" href="{link}">Enquire</a>
           <ul class="aside-contact">
             <li><a href="tel:{PHONE}">{PHONE_DISPLAY}</a></li>
             <li><a href="mailto:{EMAIL}">{EMAIL}</a></li>
@@ -965,6 +871,7 @@ def detail(tour, index):
         1,
         "experiences",
         main,
+        enquire=link,
     )
 
 
