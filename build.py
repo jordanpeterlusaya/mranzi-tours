@@ -224,8 +224,8 @@ TOURS = [
         "title": "Butterfly Centre + Jozani Forest",
         "cat": "nature",
         "cat_label": "Wildlife & Nature",
-        "image": "combo-zanzibar-palms.webp",
-        "alt": "Palm trees along a luminous Zanzibar shore",
+        "image": "lux-butterflies.webp",
+        "alt": "Butterflies in a tropical garden sanctuary",
         "summary": "A full day between the Butterfly Centre and Jozani Forest.",
         "body": [
             "This full-day excursion pairs the Zanzibar Butterfly Centre, a garden housing a diverse array of butterflies, with Jozani Forest, a national park of plant and animal life.",
@@ -276,8 +276,8 @@ TOURS = [
         "title": "Butterfly Centre, Jozani Forest + Stone Town",
         "cat": "heritage",
         "cat_label": "Heritage & Culture",
-        "image": "hero-zanzibar-luxury.webp",
-        "alt": "A dhow beside a palm beach on clear water",
+        "image": "lux-stone-town-aerial.webp",
+        "alt": "Aerial view of Stone Town beside turquoise water",
         "summary": "Butterflies, Jozani, and a Stone Town walking tour.",
         "body": [
             "The day includes the Zanzibar Butterfly Centre, Jozani Forest and a Stone Town walking tour.",
@@ -294,8 +294,8 @@ TOURS = [
         "title": "Safari Blue Private Dhow",
         "cat": "ocean",
         "cat_label": "Ocean & Islands",
-        "image": "combo-zanzibar-dhow.webp",
-        "alt": "Traditional dhow in the shallows of Menai Bay",
+        "image": "lux-dhow-sail.webp",
+        "alt": "A traditional dhow under full sail",
         "summary": "A full day on a private dhow in Menai Bay: sailing, snorkelling, dolphins and lunch.",
         "body": [
             "Safari Blue is a full-day excursion in the Menai Bay Conservation Area, a marine sanctuary off the coast of Zanzibar.",
@@ -378,8 +378,8 @@ TOURS = [
         "title": "Chumbe Island Tour",
         "cat": "ocean",
         "cat_label": "Ocean & Islands",
-        "image": "combo-znz-island-hd.jpg",
-        "alt": "A green island rising from turquoise water",
+        "image": "lux-lighthouse-island.webp",
+        "alt": "A green island with a lighthouse in clear water",
         "summary": "A private nature reserve of coral reef, forest and wildlife.",
         "body": [
             "Chumbe Island is a privately owned nature reserve off the coast of Zanzibar, with a coral reef, a forest reserve and a variety of wildlife.",
@@ -395,8 +395,8 @@ TOURS = [
         "title": "Spice Tour + Swahili Cooking Lesson",
         "cat": "flavours",
         "cat_label": "Flavours & Lifestyle",
-        "image": "chef-luxury.jpg",
-        "alt": "Hands preparing a fragrant Swahili dish",
+        "image": "lux-chefs.webp",
+        "alt": "Chefs preparing Swahili flatbread outdoors",
         "summary": "From the spice farm to the market, then into a Swahili kitchen.",
         "body": [
             "The visit begins on a spice farm, with the ingredients used in Swahili cooking.",
@@ -413,8 +413,8 @@ TOURS = [
         "title": "Jambiani Village Cultural Tour",
         "cat": "heritage",
         "cat_label": "Heritage & Culture",
-        "image": "combo-znz-palms-hd.jpg",
-        "alt": "Palm-lined white sand beach on Zanzibar",
+        "image": "lux-coast-bay.webp",
+        "alt": "Turquoise bay and palm coastline",
         "summary": "Everyday Swahili life in Jambiani village.",
         "body": [
             "Jambiani is known for its cultural heritage along the east coast. The visit is a chance to experience the Swahili way of life in the village, with the people who live there.",
@@ -498,8 +498,8 @@ TOURS = [
         "title": "Stone Town, Spice Tour + Prison Island",
         "cat": "heritage",
         "cat_label": "Heritage & Culture",
-        "image": "nakupenda-island.webp",
-        "alt": "A sandbank and island in turquoise water",
+        "image": "lux-coast-estate.webp",
+        "alt": "A coastal estate above turquoise shallows",
         "summary": "Historic Stone Town, a spice farm and Prison Island in one arrangement.",
         "body": [
             "This combination brings together the historic city of Stone Town, a spice tour and Prison Island.",
@@ -571,6 +571,13 @@ def booking_form(selected=""):
 
 
 DIMS = {
+    "lux-coast-estate.webp": (1200, 1500),
+    "lux-coast-bay.webp": (1200, 1500),
+    "lux-lighthouse-island.webp": (1200, 1500),
+    "lux-chefs.webp": (1200, 1500),
+    "lux-dhow-sail.webp": (1200, 1500),
+    "lux-stone-town-aerial.webp": (1200, 1500),
+    "lux-butterflies.webp": (1200, 1500),
     "spice-cloves.jpg": (1920, 1280),
     "signature-the-rock.webp": (900, 1200),
     "sandbank-hd.jpg": (1920, 1440),
@@ -657,6 +664,36 @@ def header(prefix, current):
   </header>"""
 
 
+# Official profile URLs when available. Empty = fall back to WhatsApp contact.
+SOCIAL_INSTAGRAM = ""
+SOCIAL_FACEBOOK = ""
+
+
+def social_links():
+    share = e(SITE + "/")
+    ig = SOCIAL_INSTAGRAM or wa(GENERAL)
+    fb = SOCIAL_FACEBOOK or f"https://www.facebook.com/sharer/sharer.php?u={share}"
+    return f"""
+      <div class="social" aria-label="Social links">
+        <a class="social-link" href="{e(wa(GENERAL))}" target="_blank" rel="noopener" aria-label="WhatsApp">
+          {WA_ICON}<span>WhatsApp</span>
+        </a>
+        <a class="social-link" href="{e(ig)}" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2zm0 2A3.8 3.8 0 0 0 4 7.8v8.4A3.8 3.8 0 0 0 7.8 20h8.4a3.8 3.8 0 0 0 3.8-3.8V7.8A3.8 3.8 0 0 0 16.2 4H7.8zm9.65 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+          <span>Instagram</span>
+        </a>
+        <a class="social-link" href="{e(fb)}" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M14 8.2h2.4V5H14c-2.3 0-3.8 1.5-3.8 3.9V11H8v3.2h2.2V21h3.3v-6.8H16l.5-3.2h-2.8V9.2c0-.6.3-1 1.1-1z"/></svg>
+          <span>Facebook</span>
+        </a>
+        <a class="social-link" href="mailto:{EMAIL}" aria-label="Email">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.2-8 5-8-5V6l8 5 8-5v2.2z"/></svg>
+          <span>Email</span>
+        </a>
+      </div>"""
+
+
+
 def footer(prefix, experience=""):
     return f"""
   <footer class="site-footer">
@@ -664,6 +701,7 @@ def footer(prefix, experience=""):
       <div class="foot-brand">
         <h2>Mranzi</h2>
         <p>Private experiences across Zanzibar and Tanzania, arranged at your pace.</p>
+        {social_links()}
       </div>
       <div>
         <h3>Experiences</h3>

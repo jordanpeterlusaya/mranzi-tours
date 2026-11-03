@@ -556,6 +556,36 @@ textarea { min-height: 6.5rem; resize: vertical; }
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
+.social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.2rem;
+}
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 2.3rem;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid rgba(247, 244, 237, 0.28);
+  color: var(--ivory);
+  text-decoration: none;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.social-link svg,
+.social-link .wa-icon {
+  width: 0.95rem;
+  height: 0.95rem;
+  flex: none;
+}
+.social-link:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
 .site-footer h3 {
   font-family: var(--sans);
   font-size: 0.68rem;
