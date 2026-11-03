@@ -38,8 +38,8 @@ TOURS = [
         "title": "Stone Town + Spice Tour",
         "cat": "heritage",
         "cat_label": "Heritage & Culture",
-        "image": "stonetown.webp",
-        "alt": "Stone Town lanes and carved wooden architecture",
+        "image": "stone-town-doors.jpg",
+        "alt": "A carved wooden door in a Stone Town lane",
         "summary": "A walk through Stone Town’s architectural lanes, followed by an afternoon on a local spice farm.",
         "body": [
             "The morning moves through the winding streets of Stone Town, with time for the architectural character of the old city and the layers of history held in its houses and courtyards.",
@@ -55,8 +55,8 @@ TOURS = [
         "title": "Spice Tour",
         "cat": "flavours",
         "cat_label": "Flavours & Lifestyle",
-        "image": "spice-farm.webp",
-        "alt": "Fresh tropical fruit opened by hand on a spice farm",
+        "image": "spice-cloves.jpg",
+        "alt": "Clove buds on a spice farm in Zanzibar",
         "summary": "Aromatic spices, herbs, coconut and tropical fruit, seen where they are grown.",
         "body": [
             "Zanzibar’s spice farms hold an abundance of aromatic spices, herbs and tropical fruit. This visit is about the plants themselves: how they are cultivated, and how coconut sits alongside the cloves, cinnamon and other crops of the island.",
@@ -71,8 +71,8 @@ TOURS = [
         "title": "Prison Island Tour",
         "cat": "ocean",
         "cat_label": "Ocean & Islands",
-        "image": "sandbank-prison-island.webp",
-        "alt": "Shallow turquoise water near Prison Island",
+        "image": "sandbank-hd.jpg",
+        "alt": "Clear turquoise water approaching Prison Island",
         "summary": "The former prison and quarantine hospital, and the giant tortoises that now live on the island.",
         "body": [
             "Prison Island has served as a prison and later as a quarantine hospital. Today it is known for that history and for its tortoise sanctuary.",
@@ -105,8 +105,8 @@ TOURS = [
         "title": "Stone Town Tour",
         "cat": "heritage",
         "cat_label": "Heritage & Culture",
-        "image": "stone-town-doors.jpg",
-        "alt": "A carved wooden door in a Stone Town lane",
+        "image": "stonetown.webp",
+        "alt": "A colourful lane in historic Stone Town",
         "summary": "Historic landmarks of Stone Town, including the Anglican Cathedral.",
         "body": [
             "Stone Town carries the influence of many cultures. The walk visits important historic landmarks, including the Anglican Cathedral, and moves through the lanes that still shape daily life in the old city.",
@@ -121,8 +121,8 @@ TOURS = [
         "title": "Stone Town + Prison Island",
         "cat": "heritage",
         "cat_label": "Heritage & Culture",
-        "image": "sandbank-prison-island.webp",
-        "alt": "The approach to Prison Island across shallow water",
+        "image": "island-resort-aerial.jpg",
+        "alt": "An island resort ringed by turquoise reef",
         "summary": "Stone Town’s narrow streets and coloured houses, paired with Prison Island.",
         "body": [
             "Stone Town is one of the most fascinating cities in Africa: a maze of narrow streets and coloured houses, with a rich history and culture.",
@@ -139,7 +139,7 @@ TOURS = [
         "cat": "nature",
         "cat_label": "Wildlife & Nature",
         "image": "jozani.webp",
-        "alt": "Forest canopy in Jozani",
+        "alt": "Zanzibar red colobus among forest leaves",
         "summary": "A thorough Stone Town walk, then the forest in the afternoon.",
         "body": [
             "The day begins with a comprehensive walk through Stone Town: its viewpoints, landmarks and narrow streets.",
@@ -172,8 +172,8 @@ TOURS = [
         "title": "Safari Blue",
         "cat": "ocean",
         "cat_label": "Ocean & Islands",
-        "image": "dolphins-zanzibar.webp",
-        "alt": "Dolphins in the water off Zanzibar",
+        "image": "reef-snorkel.jpg",
+        "alt": "Snorkellers above a coral reef in clear water",
         "summary": "Menai Bay by boat: reefs, dolphins and a seafood lunch.",
         "body": [
             "Safari Blue spends the day among the islands of the Menai Bay Conservation Area.",
@@ -189,8 +189,8 @@ TOURS = [
         "title": "Stone Town Tour with Lunch",
         "cat": "heritage",
         "cat_label": "Heritage & Culture",
-        "image": "forodhani.webp",
-        "alt": "Food being prepared at the Forodhani night market",
+        "image": "private-chef.webp",
+        "alt": "A plated seafood meal",
         "summary": "The landmarks of Stone Town, with lunch included.",
         "body": [
             "This Stone Town walk includes the Anglican Cathedral, the slave markets, the Palace of the Sultans, Tippu Tip’s House, the Arabic Fort, Forodhani Park and the carved Zanzibar doors.",
@@ -207,8 +207,8 @@ TOURS = [
         "title": "The Rock",
         "cat": "ocean",
         "cat_label": "Ocean & Islands",
-        "image": "the-rock.webp",
-        "alt": "The Rock restaurant standing in the sea",
+        "image": "signature-the-rock.webp",
+        "alt": "The Rock restaurant on a coral outcrop",
         "summary": "The Rock, the coral around it, and a long look at the coast.",
         "body": [
             "A visit to The Rock is a pause on the east coast: the restaurant on its tidal rock, the coral formations around it, and wide views of the sea.",
@@ -224,8 +224,8 @@ TOURS = [
         "title": "Butterfly Centre + Jozani Forest",
         "cat": "nature",
         "cat_label": "Wildlife & Nature",
-        "image": "jozani-forest.webp",
-        "alt": "Colobus monkey among the trees of Jozani",
+        "image": "combo-zanzibar-palms.webp",
+        "alt": "Palm trees along a luminous Zanzibar shore",
         "summary": "A full day between the Butterfly Centre and Jozani Forest.",
         "body": [
             "This full-day excursion pairs the Zanzibar Butterfly Centre, a garden housing a diverse array of butterflies, with Jozani Forest, a national park of plant and animal life.",
@@ -242,7 +242,7 @@ TOURS = [
         "cat": "flavours",
         "cat_label": "Flavours & Lifestyle",
         "image": "spice-farm.webp",
-        "alt": "Hands holding freshly opened tropical fruit",
+        "alt": "Fresh tropical fruit opened on a spice farm",
         "summary": "Butterflies, the forest, and a spice farm in one day.",
         "body": [
             "The day brings together the Butterfly Centre, Jozani Forest and a spice tour.",
@@ -259,8 +259,8 @@ TOURS = [
         "title": "Butterfly Centre, Jozani Forest + The Rock",
         "cat": "nature",
         "cat_label": "Wildlife & Nature",
-        "image": "the-rock-restaurant.webp",
-        "alt": "The Rock restaurant at the edge of the tide",
+        "image": "the-rock.webp",
+        "alt": "The Rock restaurant standing in the sea",
         "summary": "Forest and butterflies inland, then The Rock on the coast.",
         "body": [
             "The inland half of the day is the Butterfly Centre and Jozani Forest, home to rare butterflies and a wide stretch of protected forest.",
@@ -276,8 +276,8 @@ TOURS = [
         "title": "Butterfly Centre, Jozani Forest + Stone Town",
         "cat": "heritage",
         "cat_label": "Heritage & Culture",
-        "image": "stonetown.webp",
-        "alt": "A lane in historic Stone Town",
+        "image": "hero-zanzibar-luxury.webp",
+        "alt": "A dhow beside a palm beach on clear water",
         "summary": "Butterflies, Jozani, and a Stone Town walking tour.",
         "body": [
             "The day includes the Zanzibar Butterfly Centre, Jozani Forest and a Stone Town walking tour.",
@@ -328,8 +328,8 @@ TOURS = [
         "title": "Seaweed Centre Tour",
         "cat": "flavours",
         "cat_label": "Flavours & Lifestyle",
-        "image": "combo-zanzibar-shore.webp",
-        "alt": "Shallow coastal water along a Zanzibar shore",
+        "image": "combo-znz-shore-hd.jpg",
+        "alt": "White sand and clear shallows on the Zanzibar coast",
         "summary": "A visit with women seaweed farmers and the community work around the farms.",
         "body": [
             "The Seaweed Centre works with women seaweed farmers to improve daily life and to support activities that benefit the wider community.",
@@ -362,8 +362,8 @@ TOURS = [
         "title": "Stone Town Voodoo Evening Tour",
         "cat": "heritage",
         "cat_label": "Heritage & Culture",
-        "image": "stonetown.webp",
-        "alt": "A narrow lane in Stone Town",
+        "image": "forodhani.webp",
+        "alt": "Forodhani night market in Stone Town",
         "summary": "An evening walk through Stone Town’s spiritual heritage.",
         "body": [
             "The Stone Town Voodoo Evening Tour is an after-dark walk through sites connected with the town’s spiritual and haunted heritage.",
@@ -378,8 +378,8 @@ TOURS = [
         "title": "Chumbe Island Tour",
         "cat": "ocean",
         "cat_label": "Ocean & Islands",
-        "image": "combo-zanzibar-island.webp",
-        "alt": "A small green island in clear Indian Ocean water",
+        "image": "combo-znz-island-hd.jpg",
+        "alt": "A green island rising from turquoise water",
         "summary": "A private nature reserve of coral reef, forest and wildlife.",
         "body": [
             "Chumbe Island is a privately owned nature reserve off the coast of Zanzibar, with a coral reef, a forest reserve and a variety of wildlife.",
@@ -395,8 +395,8 @@ TOURS = [
         "title": "Spice Tour + Swahili Cooking Lesson",
         "cat": "flavours",
         "cat_label": "Flavours & Lifestyle",
-        "image": "private-chef.webp",
-        "alt": "A plated meal",
+        "image": "chef-luxury.jpg",
+        "alt": "Hands preparing a fragrant Swahili dish",
         "summary": "From the spice farm to the market, then into a Swahili kitchen.",
         "body": [
             "The visit begins on a spice farm, with the ingredients used in Swahili cooking.",
@@ -413,8 +413,8 @@ TOURS = [
         "title": "Jambiani Village Cultural Tour",
         "cat": "heritage",
         "cat_label": "Heritage & Culture",
-        "image": "village-tour.jpg",
-        "alt": "A walk with residents of a Zanzibar village",
+        "image": "combo-znz-palms-hd.jpg",
+        "alt": "Palm-lined white sand beach on Zanzibar",
         "summary": "Everyday Swahili life in Jambiani village.",
         "body": [
             "Jambiani is known for its cultural heritage along the east coast. The visit is a chance to experience the Swahili way of life in the village, with the people who live there.",
@@ -429,8 +429,8 @@ TOURS = [
         "title": "Tumbatu Cultural Tour",
         "cat": "heritage",
         "cat_label": "Heritage & Culture",
-        "image": "combo-zanzibar-aerial.webp",
-        "alt": "The Zanzibar coast seen from the air",
+        "image": "combo-znz-aerial-hd.jpg",
+        "alt": "Aerial view of the Zanzibar coastline",
         "summary": "The distinct culture of Tumbatu. A written permit is required.",
         "body": [
             "Tumbatu has a distinct and comparatively isolated community. This cultural visit is about that place and the people who live there.",
@@ -446,8 +446,8 @@ TOURS = [
         "title": "Prison Island + Sandbank with BBQ",
         "cat": "ocean",
         "cat_label": "Ocean & Islands",
-        "image": "sandbank-prison-island.webp",
-        "alt": "Shallow water and sand near Prison Island",
+        "image": "clear-kayak.jpg",
+        "alt": "A clear kayak on luminous turquoise water",
         "summary": "Prison Island’s 1893 history, then a sandbank barbecue.",
         "body": [
             "Prison Island’s prison dates to 1893 and later served as a quarantine hospital. The visit includes the remains of that history and the tortoises.",
@@ -480,8 +480,8 @@ TOURS = [
         "title": "Mnemba, Aquarium + Kendwa Beach",
         "cat": "ocean",
         "cat_label": "Ocean & Islands",
-        "image": "blue-lagoon.webp",
-        "alt": "Snorkellers above a coral reef",
+        "image": "salaam-turtles.jpg",
+        "alt": "Sea turtles in clear turquoise water",
         "summary": "A full day: Mnemba Atoll, the Nungwi aquarium and Kendwa Beach.",
         "body": [
             "This full-day tour is built around the waters of Mnemba Island Atoll.",
@@ -498,8 +498,8 @@ TOURS = [
         "title": "Stone Town, Spice Tour + Prison Island",
         "cat": "heritage",
         "cat_label": "Heritage & Culture",
-        "image": "spice-farm.webp",
-        "alt": "Spice plants on a Zanzibar farm",
+        "image": "nakupenda-island.webp",
+        "alt": "A sandbank and island in turquoise water",
         "summary": "Historic Stone Town, a spice farm and Prison Island in one arrangement.",
         "body": [
             "This combination brings together the historic city of Stone Town, a spice tour and Prison Island.",
@@ -562,7 +562,7 @@ def booking_fields(selected=""):
       <label class="field"><span>Group size</span><input name="group" required inputmode="numeric" placeholder="Number of guests"></label>
       <label class="field"><span>Pickup</span><input name="pickup" required placeholder="Hotel or area in Zanzibar"></label>
       <label class="field"><span>Note</span><textarea name="note" placeholder="Pace, interests, anything we should know"></textarea></label>
-      <button class="btn btn-wa" type="submit">{WA_ICON}Send booking on WhatsApp</button>
+      <button class="btn btn-wa" type="submit">{WA_ICON}Book on WhatsApp</button>
       <p class="form-note">WhatsApp opens only after these details are filled in. We confirm availability in the chat. Nothing is paid on this page.</p>"""
 
 
@@ -571,6 +571,19 @@ def booking_form(selected=""):
 
 
 DIMS = {
+    "spice-cloves.jpg": (1920, 1280),
+    "signature-the-rock.webp": (900, 1200),
+    "sandbank-hd.jpg": (1920, 1440),
+    "salaam-turtles.jpg": (1024, 1024),
+    "reef-snorkel.jpg": (1024, 768),
+    "pemba.webp": (354, 670),
+    "island-resort-aerial.jpg": (1024, 1024),
+    "combo-znz-shore-hd.jpg": (1920, 1280),
+    "combo-znz-palms-hd.jpg": (1920, 1280),
+    "combo-znz-island-hd.jpg": (1920, 1439),
+    "combo-znz-aerial-hd.jpg": (1920, 1078),
+    "clear-kayak.jpg": (559, 1037),
+    "chef-luxury.jpg": (1800, 2700),
     "stonetown.webp": (1280, 720),
     "spice-farm.webp": (1280, 960),
     "sandbank-prison-island.webp": (1280, 853),
@@ -588,7 +601,7 @@ DIMS = {
     "dolphins-zanzibar.webp": (1024, 683),
     "combo-zanzibar-island.webp": (1280, 853),
     "combo-zanzibar-palms.webp": (1280, 853),
-    "blue-lagoon.webp": (1280, 853),
+    "blue-lagoon.webp": (1280, 960),
     "mnemba-island.webp": (1280, 960),
     "nungwi-kendwa.webp": (1280, 960),
     "combo-zanzibar-aerial.webp": (1280, 853),
@@ -684,11 +697,11 @@ def footer(prefix, experience=""):
       <p class="copy">© <span id="year">2026</span> Mranzi Tours &amp; Safaris. Zanzibar, Tanzania.</p>
     </div>
   </footer>
-  <button type="button" class="dock" data-book data-experience="{e(experience)}">{WA_ICON}Enquire on WhatsApp</button>
+  <button type="button" class="dock" data-book data-experience="{e(experience)}">{WA_ICON}Book on WhatsApp</button>
   <dialog class="booking" data-booking>
     <form class="booking-form" data-enquiry data-phone="{PHONE}">
       <div class="booking-head">
-        <p class="eyebrow">Booking</p>
+        <p class="eyebrow">Book</p>
         <button class="booking-close" type="button" data-booking-close>Close</button>
       </div>
       <h2>Your details</h2>
@@ -758,7 +771,7 @@ def home():
             {meta_line(tour)}
             <div class="pkg-actions">
               <a class="text-link" href="experiences/{tour['slug']}.html">View details</a>
-              {book_button("Enquire", tour["title"])}
+              {book_button("Book", tour["title"])}
             </div>
           </div>
         </article>""")
@@ -825,7 +838,7 @@ def catalog():
             {meta_line(tour)}
             <div class="pkg-actions">
               <a class="text-link" href="{tour['slug']}.html">View details</a>
-              {book_button("Enquire", tour["title"])}
+              {book_button("Book", tour["title"])}
             </div>
           </div>
         </article>""")
@@ -894,7 +907,7 @@ def detail(tour, index):
           {paragraphs}
         </div>
         <aside class="exp-aside">
-          <p class="eyebrow">Booking</p>
+          <p class="eyebrow">Book</p>
           {booking_form(tour["title"])}
           <ul class="aside-contact">
             <li><a href="tel:{PHONE}">{PHONE_DISPLAY}</a></li>

@@ -309,15 +309,19 @@ ul { margin: 0; padding: 0; }
   display: block;
   overflow: hidden;
   aspect-ratio: 4 / 5;
-  background: var(--sand);
+  background: #1c221e;
 }
 .pkg-media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.9s ease;
+  filter: contrast(1.06) saturate(1.08) brightness(0.97);
+  transition: transform 1.1s ease, filter 0.5s ease;
 }
-.pkg-media:hover img { transform: scale(1.04); }
+.pkg-media:hover img {
+  transform: scale(1.05);
+  filter: contrast(1.08) saturate(1.12) brightness(1);
+}
 .pkg-copy { padding-top: 0.95rem; }
 .pkg h3 { font-size: clamp(1.85rem, 6vw, 2.4rem); }
 .pkg h3 a { text-decoration: none; }
@@ -408,7 +412,10 @@ ul { margin: 0; padding: 0; }
   color: var(--ivory);
   background: var(--forest);
 }
-.page-hero img { object-fit: cover; }
+.page-hero img {
+  object-fit: cover;
+  filter: contrast(1.05) saturate(1.06) brightness(0.96);
+}
 .page-hero .wrap { padding-bottom: 2.2rem; }
 .crumbs {
   margin-bottom: 0.6rem;
@@ -444,7 +451,17 @@ ul { margin: 0; padding: 0; }
 .highlights { list-style: none; margin-top: 1.2rem; }
 .highlights li { padding: 0.75rem 0; border-top: 1px solid var(--line); }
 .frame { overflow: hidden; background: var(--sand); }
-.frame img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.9s ease; }
+.frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1.05) saturate(1.07) brightness(0.98);
+  transition: transform 1.1s ease, filter 0.5s ease;
+}
+.frame:hover img {
+  transform: scale(1.04);
+  filter: contrast(1.08) saturate(1.1) brightness(1);
+}
 .dest-main .frame,
 .dest-stack .frame,
 .dest-row .frame,
