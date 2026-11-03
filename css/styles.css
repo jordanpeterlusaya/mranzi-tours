@@ -598,11 +598,13 @@ textarea { min-height: 6.5rem; resize: vertical; }
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
+.social-link img,
 .social-link svg,
 .social-link .wa-icon {
-  width: 0.95rem;
-  height: 0.95rem;
+  width: 1.15rem;
+  height: 1.15rem;
   flex: none;
+  display: block;
 }
 .social-link:hover {
   border-color: var(--gold);

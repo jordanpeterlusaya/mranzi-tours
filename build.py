@@ -74,8 +74,8 @@ TOURS = [
         "title": "Prison Island Tour",
         "cat": "ocean",
         "cat_label": "Ocean & Islands",
-        "image": "sandbank-hd.jpg",
-        "alt": "Clear turquoise water approaching Prison Island",
+        "image": "lux-coast-estate.webp",
+        "alt": "A coastal island estate above turquoise water",
         "summary": "Changuu Island: Aldabra giant tortoises, historic ruins and a short boat ride from Stone Town.",
         "body": [
             "Prison Island — also called Changuu — sits a short boat ride northwest of Stone Town. The prison complex was completed in the 1890s but never held prisoners; it later became a yellow-fever quarantine station for ships arriving in East Africa.",
@@ -197,8 +197,8 @@ TOURS = [
         "title": "Stone Town Tour with Lunch",
         "cat": "heritage",
         "cat_label": "Heritage & Culture",
-        "image": "private-chef.webp",
-        "alt": "A plated seafood meal",
+        "image": "lux-chefs.webp",
+        "alt": "Chefs preparing a Swahili lunch outdoors",
         "summary": "The landmarks of Stone Town, with lunch included.",
         "body": [
             "This Stone Town walk includes the Anglican Cathedral, the slave markets, the Palace of the Sultans, Tippu Tip’s House, the Arabic Fort, Forodhani Park and the carved Zanzibar doors.",
@@ -234,7 +234,7 @@ TOURS = [
         "cat": "nature",
         "cat_label": "Wildlife & Nature",
         "image": "lux-butterflies.webp",
-        "alt": "Butterflies in a tropical garden sanctuary",
+        "alt": "Orange butterflies in a tropical garden sanctuary",
         "summary": "A full day pairing the Zanzibar Butterfly Centre with Jozani Forest.",
         "body": [
             "The Zanzibar Butterfly Centre is a community garden a few minutes from Jozani, where native butterflies fly in a netted enclosure and local farmers rear pupae as an income from keeping forest standing.",
@@ -251,8 +251,8 @@ TOURS = [
         "title": "Butterfly Centre, Jozani Forest + Spice Tour",
         "cat": "flavours",
         "cat_label": "Flavours & Lifestyle",
-        "image": "spice-farm.webp",
-        "alt": "Fresh tropical fruit opened on a spice farm",
+        "image": "lux-butterfly-centre.webp",
+        "alt": "Butterflies among leaves at the Butterfly Centre",
         "summary": "Butterflies, the forest, and a spice farm in one day.",
         "body": [
             "The day brings together the Butterfly Centre, Jozani Forest and a spice tour.",
@@ -406,8 +406,8 @@ TOURS = [
         "title": "Spice Tour + Swahili Cooking Lesson",
         "cat": "flavours",
         "cat_label": "Flavours & Lifestyle",
-        "image": "lux-chefs.webp",
-        "alt": "Chefs preparing Swahili flatbread outdoors",
+        "image": "private-chef.webp",
+        "alt": "A plated seafood meal",
         "summary": "From the spice farm to the market, then into a Swahili kitchen.",
         "body": [
             "The visit begins on a spice farm, with the ingredients used in Swahili cooking.",
@@ -510,8 +510,8 @@ TOURS = [
         "title": "Stone Town, Spice Tour + Prison Island",
         "cat": "heritage",
         "cat_label": "Heritage & Culture",
-        "image": "lux-coast-estate.webp",
-        "alt": "A coastal estate above turquoise shallows",
+        "image": "sandbank-hd.jpg",
+        "alt": "Clear turquoise water approaching Prison Island",
         "summary": "Historic Stone Town, a spice farm and Prison Island in one arrangement.",
         "body": [
             "This combination brings together the historic city of Stone Town, a spice tour and Prison Island.",
@@ -582,13 +582,14 @@ def booking_form(selected=""):
 
 
 DIMS = {
-    "lux-coast-estate.webp": (1200, 1500),
-    "lux-coast-bay.webp": (1200, 1500),
-    "lux-lighthouse-island.webp": (1200, 1500),
-    "lux-chefs.webp": (1200, 1500),
-    "lux-dhow-sail.webp": (1200, 1500),
-    "lux-stone-town-aerial.webp": (1200, 1500),
-    "lux-butterflies.webp": (1200, 1500),
+    "lux-butterfly-centre.webp": (1600, 2000),
+    "lux-coast-estate.webp": (1600, 2000),
+    "lux-coast-bay.webp": (1600, 2000),
+    "lux-lighthouse-island.webp": (1600, 2000),
+    "lux-chefs.webp": (1600, 2000),
+    "lux-dhow-sail.webp": (1600, 2000),
+    "lux-stone-town-aerial.webp": (1600, 2000),
+    "lux-butterflies.webp": (1600, 2000),
     "spice-cloves.jpg": (1920, 1280),
     "signature-the-rock.webp": (900, 1200),
     "sandbank-hd.jpg": (1920, 1440),
@@ -680,28 +681,31 @@ SOCIAL_INSTAGRAM = ""
 SOCIAL_FACEBOOK = ""
 
 
-def social_links():
+def social_links(prefix=""):
     share = e(SITE + "/")
     ig = SOCIAL_INSTAGRAM or wa(GENERAL)
     fb = SOCIAL_FACEBOOK or f"https://www.facebook.com/sharer/sharer.php?u={share}"
+    base = f"{prefix}assets/social"
     return f"""
       <div class="social" aria-label="Social links">
-        <a class="social-link" href="{e(wa(GENERAL))}" target="_blank" rel="noopener" aria-label="WhatsApp">
-          {WA_ICON}<span>WhatsApp</span>
+        <a class="social-link" href="{e(wa(GENERAL))}" target="_blank" rel="noopener">
+          <img src="{base}/whatsapp.svg" alt="" width="22" height="22" decoding="async">
+          <span>WhatsApp</span>
         </a>
-        <a class="social-link" href="{e(ig)}" target="_blank" rel="noopener" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2zm0 2A3.8 3.8 0 0 0 4 7.8v8.4A3.8 3.8 0 0 0 7.8 20h8.4a3.8 3.8 0 0 0 3.8-3.8V7.8A3.8 3.8 0 0 0 16.2 4H7.8zm9.65 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+        <a class="social-link" href="{e(ig)}" target="_blank" rel="noopener">
+          <img src="{base}/instagram.svg" alt="" width="22" height="22" decoding="async">
           <span>Instagram</span>
         </a>
-        <a class="social-link" href="{e(fb)}" target="_blank" rel="noopener" aria-label="Facebook">
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M14 8.2h2.4V5H14c-2.3 0-3.8 1.5-3.8 3.9V11H8v3.2h2.2V21h3.3v-6.8H16l.5-3.2h-2.8V9.2c0-.6.3-1 1.1-1z"/></svg>
+        <a class="social-link" href="{e(fb)}" target="_blank" rel="noopener">
+          <img src="{base}/facebook.svg" alt="" width="22" height="22" decoding="async">
           <span>Facebook</span>
         </a>
-        <a class="social-link" href="mailto:{EMAIL}" aria-label="Email">
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.2-8 5-8-5V6l8 5 8-5v2.2z"/></svg>
+        <a class="social-link" href="mailto:{EMAIL}">
+          <img src="{base}/email.svg" alt="" width="22" height="22" decoding="async">
           <span>Email</span>
         </a>
       </div>"""
+
 
 
 
@@ -712,7 +716,7 @@ def footer(prefix, experience=""):
       <div class="foot-brand">
         <h2>Mranzi</h2>
         <p>Private experiences across Zanzibar and Tanzania, arranged at your pace.</p>
-        {social_links()}
+        {social_links(prefix)}
       </div>
       <div>
         <h3>Experiences</h3>
