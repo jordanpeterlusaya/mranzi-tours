@@ -10,6 +10,12 @@ PHONE = "255777466868"
 PHONE_DISPLAY = "+255 777 466 868"
 EMAIL = "info@mranzitours.co.tz"
 SITE = "https://mranzitours.co.tz"
+BRAND = "Mranzi Tours & Safaris"
+# Stone Town, Unguja — used for GEO / local search signals
+GEO_LAT = -6.1659
+GEO_LNG = 39.1990
+GEO_REGION = "TZ-07"
+GEO_PLACE = "Zanzibar City, Zanzibar, Tanzania"
 
 GENERAL = (
     "Hello Mranzi Tours & Safaris, I would like to plan a private journey "
@@ -56,8 +62,8 @@ TOURS = [
         "title": "Spice Tour",
         "cat": "flavours",
         "cat_label": "Flavours & Lifestyle",
-        "image": "spice-farm.webp",
-        "alt": "A guide with spices in a Zanzibar plantation",
+        "image": "lux-spice-plantation.webp",
+        "alt": "Cinnamon and clove trees on a Zanzibar spice plantation",
         "summary": "Walk a working farm of cloves, cinnamon, vanilla and tropical fruit — Zanzibar as the Spice Island.",
         "body": [
             "Central Zanzibar’s farms still grow the crops that made the island’s trading fortune: cloves, cinnamon, nutmeg, vanilla, cardamom, pepper and more beneath coconut palms.",
@@ -251,8 +257,8 @@ TOURS = [
         "title": "Butterfly Centre, Jozani Forest + Spice Tour",
         "cat": "flavours",
         "cat_label": "Flavours & Lifestyle",
-        "image": "lux-butterfly-centre.webp",
-        "alt": "Butterflies among leaves at the Butterfly Centre",
+        "image": "spice-cloves.jpg",
+        "alt": "Fresh clove buds on a Zanzibar spice farm",
         "summary": "Butterflies, the forest, and a spice farm in one day.",
         "body": [
             "The day brings together the Butterfly Centre, Jozani Forest and a spice tour.",
@@ -269,8 +275,8 @@ TOURS = [
         "title": "Butterfly Centre, Jozani Forest + The Rock",
         "cat": "nature",
         "cat_label": "Wildlife & Nature",
-        "image": "the-rock.webp",
-        "alt": "The Rock restaurant standing in the sea",
+        "image": "lux-jozani-colobus.webp",
+        "alt": "Red colobus monkeys in Jozani Forest, Zanzibar",
         "summary": "Forest and butterflies inland, then The Rock on the coast.",
         "body": [
             "The inland half of the day is the Butterfly Centre and Jozani Forest, home to rare butterflies and a wide stretch of protected forest.",
@@ -591,6 +597,8 @@ DIMS = {
     "lux-stone-town-aerial.webp": (1600, 2000),
     "lux-butterflies.webp": (1600, 2000),
     "lux-swahili-cooking.webp": (1600, 2000),
+    "lux-spice-plantation.webp": (1600, 2000),
+    "lux-jozani-colobus.webp": (1600, 2000),
     "spice-cloves.jpg": (1920, 1280),
     "signature-the-rock.webp": (900, 1200),
     "sandbank-hd.jpg": (1920, 1440),
@@ -765,25 +773,304 @@ def footer(prefix, experience=""):
   <script src="{prefix}js/site.js"></script>"""
 
 
+def json_ld(data):
+    from json import dumps
+
+    return (
+        '<script type="application/ld+json">\n  '
+        + dumps(data, ensure_ascii=False, separators=(",", ":"))
+        + "\n  </script>"
+    )
+
+
+def org_entity():
+    return {
+        "@type": "TravelAgency",
+        "@id": f"{SITE}/#organization",
+        "name": BRAND,
+        "url": f"{SITE}/",
+        "email": EMAIL,
+        "telephone": f"+{PHONE}",
+        "image": f"{SITE}/assets/hero-zanzibar-luxury.webp",
+        "logo": f"{SITE}/favicon.svg",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Zanzibar City",
+            "addressRegion": "Zanzibar",
+            "addressCountry": "TZ",
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": GEO_LAT,
+            "longitude": GEO_LNG,
+        },
+        "areaServed": [
+            {
+                "@type": "AdministrativeArea",
+                "name": "Zanzibar",
+                "containedInPlace": {"@type": "Country", "name": "Tanzania"},
+            },
+            {"@type": "Country", "name": "Tanzania"},
+        ],
+        "knowsAbout": [
+            "Zanzibar tours",
+            "Spice tours",
+            "Stone Town",
+            "Safari Blue",
+            "Mnemba Island",
+            "Jozani Forest",
+            "Private dhow charters",
+        ],
+        "sameAs": [
+            f"https://wa.me/{PHONE}",
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": f"+{PHONE}",
+            "contactType": "customer service",
+            "areaServed": "TZ",
+            "availableLanguage": ["en", "sw"],
+        },
+    }
+
+
+def website_entity():
+    return {
+        "@type": "WebSite",
+        "@id": f"{SITE}/#website",
+        "url": f"{SITE}/",
+        "name": BRAND,
+        "description": (
+            "Private Zanzibar tours and Tanzania safari days with Mranzi Tours & Safaris — "
+            "Stone Town, spice farms, islands, reefs and wildlife."
+        ),
+        "inLanguage": "en",
+        "publisher": {"@id": f"{SITE}/#organization"},
+    }
+
+
+def breadcrumb_entity(items):
+    return {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": i + 1,
+                "name": name,
+                "item": f"{SITE}{path}",
+            }
+            for i, (name, path) in enumerate(items)
+        ],
+    }
+
+
+def tour_seo_title(tour):
+    return f"{tour['title']} in Zanzibar | {BRAND}"
+
+
+def tour_seo_description(tour):
+    base = tour["summary"].rstrip(".")
+    return (
+        f"{base}. Private guided experience in Zanzibar with {BRAND}. "
+        f"Book on WhatsApp {PHONE_DISPLAY}."
+    )
+
+
+def tour_schema(tour):
+    return {
+        "@context": "https://schema.org",
+        "@graph": [
+            org_entity(),
+            website_entity(),
+            breadcrumb_entity(
+                [
+                    ("Home", "/"),
+                    ("Experiences", "/experiences/"),
+                    (tour["title"], f"/experiences/{tour['slug']}.html"),
+                ]
+            ),
+            {
+                "@type": "TouristTrip",
+                "@id": f"{SITE}/experiences/{tour['slug']}.html#trip",
+                "name": tour["title"],
+                "description": tour_seo_description(tour),
+                "url": f"{SITE}/experiences/{tour['slug']}.html",
+                "image": f"{SITE}/assets/{tour['image']}",
+                "touristType": tour["cat_label"],
+                "itinerary": {
+                    "@type": "ItemList",
+                    "itemListElement": [
+                        {
+                            "@type": "ListItem",
+                            "position": i + 1,
+                            "name": item,
+                        }
+                        for i, item in enumerate(tour["highlights"])
+                    ],
+                },
+                "provider": {"@id": f"{SITE}/#organization"},
+                "offers": {
+                    "@type": "Offer",
+                    "url": f"{SITE}/experiences/{tour['slug']}.html",
+                    "availability": "https://schema.org/InStock",
+                    "priceCurrency": "USD",
+                    "category": "Private tour",
+                },
+                "areaServed": {
+                    "@type": "Place",
+                    "name": "Zanzibar, Tanzania",
+                    "geo": {
+                        "@type": "GeoCoordinates",
+                        "latitude": GEO_LAT,
+                        "longitude": GEO_LNG,
+                    },
+                },
+            },
+        ],
+    }
+
+
+def page_schema(path, title, description, breadcrumbs):
+    return {
+        "@context": "https://schema.org",
+        "@graph": [
+            org_entity(),
+            website_entity(),
+            breadcrumb_entity(breadcrumbs),
+            {
+                "@type": "WebPage",
+                "@id": f"{SITE}{path}#webpage",
+                "url": f"{SITE}{path}",
+                "name": title,
+                "description": description,
+                "isPartOf": {"@id": f"{SITE}/#website"},
+                "about": {"@id": f"{SITE}/#organization"},
+                "inLanguage": "en",
+            },
+        ],
+    }
+
+
+def home_schema():
+    return {
+        "@context": "https://schema.org",
+        "@graph": [
+            org_entity(),
+            website_entity(),
+            breadcrumb_entity([("Home", "/")]),
+            {
+                "@type": "WebPage",
+                "@id": f"{SITE}/#webpage",
+                "url": f"{SITE}/",
+                "name": f"{BRAND} | Private Zanzibar Tours & Tanzania Safaris",
+                "description": (
+                    "Private Zanzibar tours with Mranzi Tours & Safaris — Stone Town, spice farms, "
+                    "Prison Island, Safari Blue, Mnemba, Jozani Forest and tailor-made Tanzania days."
+                ),
+                "isPartOf": {"@id": f"{SITE}/#website"},
+                "about": {"@id": f"{SITE}/#organization"},
+                "inLanguage": "en",
+                "primaryImageOfPage": {
+                    "@type": "ImageObject",
+                    "url": f"{SITE}/assets/hero-zanzibar-luxury.webp",
+                },
+            },
+            {
+                "@type": "ItemList",
+                "name": "Zanzibar experiences",
+                "itemListOrder": "https://schema.org/ItemListOrderAscending",
+                "numberOfItems": len(TOURS),
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": i + 1,
+                        "url": f"{SITE}/experiences/{tour['slug']}.html",
+                        "name": tour["title"],
+                    }
+                    for i, tour in enumerate(TOURS)
+                ],
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "Where is Mranzi Tours & Safaris based?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": (
+                                "Mranzi Tours & Safaris operates private experiences across Zanzibar "
+                                "and Tanzania, with WhatsApp booking on +255 777 466 868."
+                            ),
+                        },
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "How do I book a Zanzibar tour?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": (
+                                "Open any experience, fill in the booking form, then continue on WhatsApp. "
+                                "We confirm availability, timing and pickup before you travel."
+                            ),
+                        },
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Which Zanzibar tours can Mranzi arrange?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": (
+                                "Stone Town walks, spice farms, Prison Island, Safari Blue, Mnemba Island, "
+                                "Jozani Forest, Butterfly Centre days, The Rock, cultural village visits "
+                                "and private dhow charters."
+                            ),
+                        },
+                    },
+                ],
+            },
+        ],
+    }
+
+
 def document(title, description, path, image, depth, current, main, schema="", enquire=None):
     prefix = "../" * depth
     canonical = SITE + path
     og = f"{SITE}/assets/{image}"
+    w, h = DIMS.get(image, (1280, 853))
+    if not schema:
+        schema_block = ""
+    elif isinstance(schema, str):
+        schema_block = schema
+    else:
+        schema_block = json_ld(schema)
     return f"""<!DOCTYPE html>
-<html lang="en">
+<html lang="en-TZ">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{e(title)}</title>
   <meta name="description" content="{e(description)}">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="{e(BRAND)}">
+  <meta name="geo.region" content="{GEO_REGION}">
+  <meta name="geo.placename" content="{e(GEO_PLACE)}">
+  <meta name="geo.position" content="{GEO_LAT};{GEO_LNG}">
+  <meta name="ICBM" content="{GEO_LAT}, {GEO_LNG}">
   <link rel="canonical" href="{canonical}">
+  <link rel="alternate" hreflang="en-TZ" href="{canonical}">
+  <link rel="alternate" hreflang="x-default" href="{canonical}">
   <meta name="theme-color" content="#F7F4ED">
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Mranzi Tours &amp; Safaris">
+  <meta property="og:locale" content="en_TZ">
+  <meta property="og:site_name" content="{e(BRAND)}">
   <meta property="og:title" content="{e(title)}">
   <meta property="og:description" content="{e(description)}">
   <meta property="og:url" content="{canonical}">
   <meta property="og:image" content="{og}">
+  <meta property="og:image:width" content="{w}">
+  <meta property="og:image:height" content="{h}">
+  <meta property="og:image:alt" content="{e(title)}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{e(title)}">
   <meta name="twitter:description" content="{e(description)}">
@@ -793,7 +1080,7 @@ def document(title, description, path, image, depth, current, main, schema="", e
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{prefix}css/styles.css">
-  {schema}
+  {schema_block}
 </head>
 <body>
 {header(prefix, current)}
@@ -809,10 +1096,25 @@ def img(name, alt, prefix, lazy=True):
     return f'<img src="{prefix}assets/{name}" alt="{e(alt)}" {dims(name)} {loading} decoding="async">'
 
 
+def related_tours(tour, index, count=3):
+    """Pick further experiences with different photos from the current one."""
+    pool = [t for i, t in enumerate(TOURS) if i != index and t["image"] != tour["image"]]
+    same = [t for t in pool if t["cat"] == tour["cat"]]
+    other = [t for t in pool if t["cat"] != tour["cat"]]
+    picked = []
+    seen = set()
+    for candidate in same + other:
+        if candidate["image"] in seen:
+            continue
+        picked.append(candidate)
+        seen.add(candidate["image"])
+        if len(picked) >= count:
+            break
+    return picked
+
+
 def home():
-    schema = """<script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"TravelAgency","name":"Mranzi Tours & Safaris","url":"https://mranzitours.co.tz/","email":"info@mranzitours.co.tz","telephone":"+255777466868","address":{"@type":"PostalAddress","addressLocality":"Zanzibar","addressCountry":"TZ"},"areaServed":["Zanzibar","Tanzania"]}
-  </script>"""
+    schema = json_ld(home_schema())
     packages = []
     for tour in TOURS:
         packages.append(f"""
@@ -878,8 +1180,12 @@ def home():
     </section>
   </main>"""
     return document(
-        "Mranzi Tours & Safaris | Private Zanzibar & Tanzania",
-        "Private Zanzibar experiences with Mranzi Tours & Safaris. View each journey and enquire on WhatsApp.",
+        f"{BRAND} | Private Zanzibar Tours & Tanzania Safaris",
+        (
+            "Private Zanzibar tours with Mranzi Tours & Safaris — Stone Town, spice farms, "
+            "Prison Island, Safari Blue, Mnemba, Jozani Forest and tailor-made Tanzania days. "
+            f"Book on WhatsApp {PHONE_DISPLAY}."
+        ),
         "/",
         "hero-zanzibar-luxury.webp",
         0,
@@ -932,21 +1238,32 @@ def catalog():
       </div>
     </section>
   </main>"""
+    catalog_title = f"Zanzibar Tours & Experiences | {BRAND}"
+    catalog_desc = (
+        "Browse private Zanzibar tours: Stone Town, spice farms, Jozani Forest, Safari Blue, "
+        f"Mnemba Island, Prison Island, The Rock and cultural village days with {BRAND}."
+    )
     return document(
-        "Zanzibar Experiences | Mranzi Tours & Safaris",
-        "Stone Town, spice farms, Jozani, Safari Blue, Mnemba, Prison Island and private dhow days with Mranzi Tours & Safaris.",
+        catalog_title,
+        catalog_desc,
         "/experiences/",
         "combo-zanzibar-dhow.webp",
         1,
         "experiences",
         main,
+        page_schema(
+            "/experiences/",
+            catalog_title,
+            catalog_desc,
+            [("Home", "/"), ("Experiences", "/experiences/")],
+        ),
     )
 
 
 def detail(tour, index):
     paragraphs = "".join(f"<p>{e(p)}</p>" for p in tour["body"])
     highlights = "".join(f"<li>{e(item)}</li>" for item in tour["highlights"])
-    related = [TOURS[i % len(TOURS)] for i in range(index + 1, index + 4)]
+    related = related_tours(tour, index)
     related_html = []
     for item in related:
         related_html.append(f"""
@@ -960,7 +1277,7 @@ def detail(tour, index):
       {img(tour['image'], tour['alt'], "../", lazy=False)}
       <div class="shade"></div>
       <div class="wrap">
-        <p class="crumbs"><a href="index.html">Experiences</a> · {e(tour['cat_label'])}</p>
+        <p class="crumbs"><a href="../index.html">Home</a> · <a href="index.html">Experiences</a> · {e(tour['cat_label'])}</p>
         <h1>{e(tour['title'])}</h1>
         {meta_line(tour)}
       </div>
@@ -977,6 +1294,7 @@ def detail(tour, index):
           <ul class="aside-contact">
             <li><a href="tel:{PHONE}">{PHONE_DISPLAY}</a></li>
             <li><a href="mailto:{EMAIL}">{EMAIL}</a></li>
+            <li>Zanzibar, Tanzania</li>
           </ul>
           <ul class="highlights">{highlights}</ul>
         </aside>
@@ -991,13 +1309,14 @@ def detail(tour, index):
     </section>
   </main>"""
     return document(
-        f"{tour['title']} | Mranzi Tours & Safaris",
-        tour["summary"],
+        tour_seo_title(tour),
+        tour_seo_description(tour),
         f"/experiences/{tour['slug']}.html",
         tour["image"],
         1,
         "experiences",
         main,
+        tour_schema(tour),
         enquire=tour["title"],
     )
 
@@ -1062,14 +1381,25 @@ def destinations():
       </div>
     </section>
   </main>"""
+    dest_title = f"Zanzibar & Tanzania Destinations | {BRAND}"
+    dest_desc = (
+        "Explore Zanzibar destinations with Mranzi Tours & Safaris — Stone Town, spice farms, "
+        "Indian Ocean islands, Jozani Forest and privately arranged Tanzania safari days."
+    )
     return document(
-        "Zanzibar & Tanzania | Mranzi Tours & Safaris",
-        "Stone Town, the Indian Ocean, Jozani Forest and privately arranged Tanzania safaris with Mranzi Tours & Safaris.",
+        dest_title,
+        dest_desc,
         "/destinations.html",
         "combo-zanzibar-aerial.webp",
         0,
         "destinations",
         main,
+        page_schema(
+            "/destinations.html",
+            dest_title,
+            dest_desc,
+            [("Home", "/"), ("Destinations", "/destinations.html")],
+        ),
     )
 
 
@@ -1117,14 +1447,25 @@ def about():
       </div>
     </section>
   </main>"""
+    about_title = f"About {BRAND} | Zanzibar Tour Operator"
+    about_desc = (
+        f"{BRAND} is a Zanzibar tour operator arranging private experiences across "
+        f"Stone Town, spice farms, islands and Tanzania. WhatsApp {PHONE_DISPLAY}."
+    )
     return document(
-        "About | Mranzi Tours & Safaris",
-        "Mranzi Tours & Safaris arranges private Zanzibar experiences and tailored journeys. Enquire on WhatsApp.",
+        about_title,
+        about_desc,
         "/about.html",
         "luxury-villa.webp",
         0,
         "about",
         main,
+        page_schema(
+            "/about.html",
+            about_title,
+            about_desc,
+            [("Home", "/"), ("About", "/about.html")],
+        ),
     )
 
 
@@ -1156,14 +1497,25 @@ def contact():
       </div>
     </section>
   </main>"""
+    contact_title = f"Contact & Book Zanzibar Tours | {BRAND}"
+    contact_desc = (
+        f"Contact {BRAND} in Zanzibar on WhatsApp {PHONE_DISPLAY} or {EMAIL} "
+        "to plan private tours, pickups and tailor-made days."
+    )
     return document(
-        "Plan Your Journey | Mranzi Tours & Safaris",
-        "Contact Mranzi Tours & Safaris on WhatsApp +255 777 466 868 or info@mranzitours.co.tz.",
+        contact_title,
+        contact_desc,
         "/contact.html",
         "sunset-dhow.jpg",
         0,
         "contact",
         main,
+        page_schema(
+            "/contact.html",
+            contact_title,
+            contact_desc,
+            [("Home", "/"), ("Contact", "/contact.html")],
+        ),
     )
 
 
@@ -1208,15 +1560,50 @@ def main():
     write("about.html", about())
     write("contact.html", contact())
     write("404.html", missing())
-    urls = ["/", "/experiences/", "/destinations.html", "/about.html", "/contact.html"]
-    urls += [f"/experiences/{tour['slug']}.html" for tour in TOURS]
-    body = "\n".join(f"  <url><loc>{SITE}{url}</loc></url>" for url in urls)
-    write("sitemap.xml", f"""<?xml version="1.0" encoding="UTF-8"?>
+    from datetime import date
+
+    today = date.today().isoformat()
+    entries = [
+        ("/", "1.0", "weekly"),
+        ("/experiences/", "0.9", "weekly"),
+        ("/destinations.html", "0.8", "monthly"),
+        ("/about.html", "0.7", "monthly"),
+        ("/contact.html", "0.8", "monthly"),
+    ]
+    entries += [
+        (f"/experiences/{tour['slug']}.html", "0.8", "weekly") for tour in TOURS
+    ]
+    body = "\n".join(
+        "  <url>\n"
+        f"    <loc>{SITE}{path}</loc>\n"
+        f"    <lastmod>{today}</lastmod>\n"
+        f"    <changefreq>{freq}</changefreq>\n"
+        f"    <priority>{priority}</priority>\n"
+        "  </url>"
+        for path, priority, freq in entries
+    )
+    write(
+        "sitemap.xml",
+        f"""<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 {body}
 </urlset>
-""")
-    write("robots.txt", f"User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n")
+""",
+    )
+    write(
+        "robots.txt",
+        (
+            "User-agent: *\n"
+            "Allow: /\n"
+            "Disallow: /404.html\n"
+            f"Sitemap: {SITE}/sitemap.xml\n"
+        ),
+    )
+    # Guard: every experience must use a unique photo
+    images = [t["image"] for t in TOURS]
+    dups = sorted({img for img in images if images.count(img) > 1})
+    if dups:
+        raise SystemExit(f"Duplicate tour images: {', '.join(dups)}")
     print(f"{len(TOURS)} experiences")
 
 
