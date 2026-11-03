@@ -40,14 +40,15 @@ TOURS = [
         "cat_label": "Heritage & Culture",
         "image": "stone-town-doors.jpg",
         "alt": "A carved wooden door in a Stone Town lane",
-        "summary": "A walk through Stone Town’s architectural lanes, followed by an afternoon on a local spice farm.",
+        "summary": "UNESCO Stone Town in the morning, then a working spice farm in the island’s green heart.",
         "body": [
-            "The morning moves through the winding streets of Stone Town, with time for the architectural character of the old city and the layers of history held in its houses and courtyards.",
-            "In the afternoon the journey continues to a local spice farm, where the island’s plants and the way they are cultivated are part of the visit.",
+            "Stone Town is a UNESCO World Heritage Site — coral-stone lanes, carved doors and a mix of Swahili, Arab, Indian and European history within walking distance of the seafront.",
+            "The afternoon continues inland to a spice farm, where cloves, cinnamon, vanilla and other crops that earned Zanzibar the name Spice Island are seen, smelled and tasted as they grow.",
         ],
         "highlights": [
-            "Stone Town’s winding streets and architecture",
-            "Afternoon visit to a local spice farm",
+            "UNESCO Stone Town walking tour",
+            "Carved doors, seafront and historic landmarks",
+            "Spice farm with cloves, cinnamon and tropical fruit",
         ],
     },
     {
@@ -57,13 +58,15 @@ TOURS = [
         "cat_label": "Flavours & Lifestyle",
         "image": "spice-cloves.jpg",
         "alt": "Clove buds on a spice farm in Zanzibar",
-        "summary": "Aromatic spices, herbs, coconut and tropical fruit, seen where they are grown.",
+        "summary": "Walk a working farm of cloves, cinnamon, vanilla and tropical fruit — Zanzibar as the Spice Island.",
         "body": [
-            "Zanzibar’s spice farms hold an abundance of aromatic spices, herbs and tropical fruit. This visit is about the plants themselves: how they are cultivated, and how coconut sits alongside the cloves, cinnamon and other crops of the island.",
+            "Central Zanzibar’s farms still grow the crops that made the island’s trading fortune: cloves, cinnamon, nutmeg, vanilla, cardamom, pepper and more beneath coconut palms.",
+            "A local guide leads you through the plantation to touch, smell and taste spices and seasonal fruit, and to see how they are used in cooking and daily life.",
         ],
         "highlights": [
-            "Aromatic spices, herbs and tropical fruits",
-            "Cultivation of spice plants, including coconut",
+            "Cloves, cinnamon, vanilla and tropical fruit",
+            "Hands-on tasting in a working plantation",
+            "The story of Zanzibar as the Spice Island",
         ],
     },
     {
@@ -73,14 +76,15 @@ TOURS = [
         "cat_label": "Ocean & Islands",
         "image": "sandbank-hd.jpg",
         "alt": "Clear turquoise water approaching Prison Island",
-        "summary": "The former prison and quarantine hospital, and the giant tortoises that now live on the island.",
+        "summary": "Changuu Island: Aldabra giant tortoises, historic ruins and a short boat ride from Stone Town.",
         "body": [
-            "Prison Island has served as a prison and later as a quarantine hospital. Today it is known for that history and for its tortoise sanctuary.",
-            "The visit gives time to learn the story of the island, see the giant tortoises, and be on the water between Stone Town and the island.",
+            "Prison Island — also called Changuu — sits a short boat ride northwest of Stone Town. The prison complex was completed in the 1890s but never held prisoners; it later became a yellow-fever quarantine station for ships arriving in East Africa.",
+            "Today the island is best known for its sanctuary of Aldabra giant tortoises, descendants of animals gifted from the Seychelles in 1919. The visit usually leaves time for the sanctuary, a walk through the historic buildings, and the clear water around the shore.",
         ],
         "highlights": [
-            "Historic prison, later a quarantine hospital",
-            "Tortoise sanctuary and giant tortoises",
+            "Boat crossing from Stone Town to Changuu Island",
+            "Aldabra giant tortoise sanctuary",
+            "Historic prison and quarantine buildings",
         ],
     },
     {
@@ -90,14 +94,15 @@ TOURS = [
         "cat_label": "Wildlife & Nature",
         "image": "jozani-forest.webp",
         "alt": "Red colobus monkey in Jozani Forest",
-        "summary": "Jozani’s forest paths and the rare Zanzibar red colobus.",
+        "summary": "Jozani Chwaka Bay National Park and the endemic Zanzibar red colobus.",
         "body": [
-            "Jozani Forest is home to a variety of wildlife, including the Zanzibar red colobus, a rare and endangered monkey found only here.",
-            "The visit is a walk in the forest, with time for the trees, the wildlife and the character of this protected corner of the island.",
+            "Jozani is Zanzibar’s principal protected forest and part of Jozani Chwaka Bay National Park — groundwater forest, coastal woodland and mangrove boardwalks in one reserve.",
+            "It is the best place to look for the Zanzibar red colobus, a rare monkey found only on this island. Guides walk the trails at a quiet pace so the trees, birds and troops of colobus remain the focus.",
         ],
         "highlights": [
-            "Zanzibar red colobus",
-            "Forest wildlife and endemic habitat",
+            "Jozani Chwaka Bay National Park",
+            "Endemic Zanzibar red colobus",
+            "Forest trails and mangrove boardwalk",
         ],
     },
     {
@@ -107,13 +112,15 @@ TOURS = [
         "cat_label": "Heritage & Culture",
         "image": "stonetown.webp",
         "alt": "A colourful lane in historic Stone Town",
-        "summary": "Historic landmarks of Stone Town, including the Anglican Cathedral.",
+        "summary": "A guided walk through UNESCO Stone Town: fort, cathedral, markets and carved doors.",
         "body": [
-            "Stone Town carries the influence of many cultures. The walk visits important historic landmarks, including the Anglican Cathedral, and moves through the lanes that still shape daily life in the old city.",
+            "Stone Town is the historic heart of Zanzibar City and a UNESCO World Heritage Site since 2000 — one of the best-preserved Swahili trading towns on the East African coast.",
+            "The walk typically takes in the Old Fort, the Anglican Cathedral and former slave market site, Forodhani Gardens on the seafront, Darajani Market and the famous carved Zanzibar doors that still mark the lanes.",
         ],
         "highlights": [
-            "Anglican Cathedral and historic landmarks",
-            "The layered cultures of Stone Town",
+            "UNESCO World Heritage lanes",
+            "Old Fort, Anglican Cathedral and Forodhani",
+            "Carved doors and Darajani Market",
         ],
     },
     {
@@ -174,14 +181,15 @@ TOURS = [
         "cat_label": "Ocean & Islands",
         "image": "reef-snorkel.jpg",
         "alt": "Snorkellers above a coral reef in clear water",
-        "summary": "Menai Bay by boat: reefs, dolphins and a seafood lunch.",
+        "summary": "A day under sail in the Menai Bay Conservation Area: reefs, sandbank, lagoon and seafood.",
         "body": [
-            "Safari Blue spends the day among the islands of the Menai Bay Conservation Area.",
-            "There is time to snorkel on Zanzibar’s coral reefs, watch for dolphins, and sit down to a seafood lunch.",
+            "Safari Blue is the classic full-day dhow excursion into the Menai Bay Conservation Area on Zanzibar’s south-west coast, usually boarding near Fumba.",
+            "The day typically combines guided snorkelling on shallow reefs, a stop on a tidal sandbank, time in a warm mangrove lagoon, and a Swahili seafood lunch. Spinner and bottlenose dolphins live in the bay; sightings are common but never guaranteed.",
         ],
         "highlights": [
-            "Menai Bay Conservation Area",
-            "Snorkelling, dolphins and a seafood lunch",
+            "Traditional wooden dhow in Menai Bay",
+            "Guided snorkelling and sandbank stop",
+            "Mangrove lagoon and seafood lunch",
         ],
     },
     {
@@ -209,14 +217,15 @@ TOURS = [
         "cat_label": "Ocean & Islands",
         "image": "signature-the-rock.webp",
         "alt": "The Rock restaurant on a coral outcrop",
-        "summary": "The Rock, the coral around it, and a long look at the coast.",
+        "summary": "The Rock restaurant on its coral outcrop, with time for the east-coast tide and views.",
         "body": [
-            "A visit to The Rock is a pause on the east coast: the restaurant on its tidal rock, the coral formations around it, and wide views of the sea.",
-            "It is arranged as time for the place itself, rather than a hurried stop between other sights.",
+            "The Rock sits on a coral rock off Michamvi on Zanzibar’s east coast — a restaurant reached on foot at low tide or by boat when the water rises.",
+            "The visit is arranged around the tide: time for the approach, the coastal views and a meal at this well-known landmark rather than a hurried photograph stop.",
         ],
         "highlights": [
-            "Visit to The Rock",
-            "Coral formations and coastal views",
+            "The Rock on its tidal coral outcrop",
+            "East-coast views and coral formations",
+            "Timing arranged around the tide",
         ],
     },
     {
@@ -226,14 +235,15 @@ TOURS = [
         "cat_label": "Wildlife & Nature",
         "image": "lux-butterflies.webp",
         "alt": "Butterflies in a tropical garden sanctuary",
-        "summary": "A full day between the Butterfly Centre and Jozani Forest.",
+        "summary": "A full day pairing the Zanzibar Butterfly Centre with Jozani Forest.",
         "body": [
-            "This full-day excursion pairs the Zanzibar Butterfly Centre, a garden housing a diverse array of butterflies, with Jozani Forest, a national park of plant and animal life.",
+            "The Zanzibar Butterfly Centre is a community garden a few minutes from Jozani, where native butterflies fly in a netted enclosure and local farmers rear pupae as an income from keeping forest standing.",
+            "The same day continues into Jozani Chwaka Bay National Park for the red colobus, forest trails and mangrove boardwalk — a clear half-to-full day of the island’s land wildlife.",
         ],
         "highlights": [
             "Full day",
-            "Zanzibar Butterfly Centre",
-            "Jozani Forest",
+            "Zanzibar Butterfly Centre community project",
+            "Jozani Forest and red colobus",
         ],
     },
     {
@@ -296,15 +306,15 @@ TOURS = [
         "cat_label": "Ocean & Islands",
         "image": "lux-dhow-sail.webp",
         "alt": "A traditional dhow under full sail",
-        "summary": "A full day on a private dhow in Menai Bay: sailing, snorkelling, dolphins and lunch.",
+        "summary": "A private full day on a wooden dhow in Menai Bay: sailing, snorkelling, lagoon and lunch.",
         "body": [
-            "Safari Blue is a full-day excursion in the Menai Bay Conservation Area, a marine sanctuary off the coast of Zanzibar.",
-            "On a private dhow the day combines sailing, snorkelling, dolphin watching and a seafood lunch.",
+            "This private arrangement keeps the spirit of Safari Blue — Menai Bay under sail — with a boat set aside for your party rather than a shared departure.",
+            "Expect snorkelling over coral, a sandbank when the tide allows, time in the mangrove lagoon and a seafood lunch arranged with the crew. Dolphin sightings depend on the animals that day.",
         ],
         "highlights": [
             "Full day on a private dhow",
-            "Sailing, snorkelling and dolphin watching",
-            "Seafood lunch",
+            "Snorkelling, sandbank and mangrove lagoon",
+            "Seafood lunch with your party",
         ],
     },
     {
@@ -380,14 +390,15 @@ TOURS = [
         "cat_label": "Ocean & Islands",
         "image": "lux-lighthouse-island.webp",
         "alt": "A green island with a lighthouse in clear water",
-        "summary": "A private nature reserve of coral reef, forest and wildlife.",
+        "summary": "A privately protected island of reef sanctuary, forest and carefully managed wildlife.",
         "body": [
-            "Chumbe Island is a privately owned nature reserve off the coast of Zanzibar, with a coral reef, a forest reserve and a variety of wildlife.",
-            "The visit is time on the island’s reef and forest, at the pace the reserve allows.",
+            "Chumbe Island Coral Park is a privately managed nature reserve off Zanzibar’s west coast, known for one of the region’s most carefully protected reef sanctuaries and a forest reserve ashore.",
+            "Visits are limited and guided, with time for the reef, the forest trails and the island’s quiet wildlife at the pace the reserve allows.",
         ],
         "highlights": [
-            "Private nature reserve",
-            "Coral reef, forest and wildlife",
+            "Privately protected coral reef sanctuary",
+            "Forest reserve and island wildlife",
+            "Guided visit with limited numbers",
         ],
     },
     {
@@ -465,14 +476,15 @@ TOURS = [
         "cat_label": "Ocean & Islands",
         "image": "mnemba-island.webp",
         "alt": "Mnemba Island ringed by turquoise reef",
-        "summary": "The reef at Mnemba, with turtles, fish and a sandbank stop.",
+        "summary": "Snorkel the protected reef around Mnemba Atoll, with turtles and clear water.",
         "body": [
-            "Mnemba’s reef holds tropical fish, sea turtles and clear water over coral.",
-            "The day includes a snack on a sandbank and time to take in the atoll.",
+            "Mnemba is a small private island ringed by a marine conservation area off the north-east coast. Boats reach the reef from beaches such as Matemwe; the island itself is closed to casual landing.",
+            "In the water the draw is coral gardens, tropical fish and, often, green turtles. A sandbank stop is arranged when the tide and conditions allow.",
         ],
         "highlights": [
-            "Mnemba reef, tropical fish and sea turtles",
-            "Sandbank stop",
+            "Mnemba Atoll marine reserve",
+            "Reef snorkelling with tropical fish and turtles",
+            "Sandbank stop when the tide allows",
         ],
     },
     {
@@ -482,15 +494,15 @@ TOURS = [
         "cat_label": "Ocean & Islands",
         "image": "salaam-turtles.jpg",
         "alt": "Sea turtles in clear turquoise water",
-        "summary": "A full day: Mnemba Atoll, the Nungwi aquarium and Kendwa Beach.",
+        "summary": "A full north-coast day: Mnemba reef, the Nungwi turtle aquarium and Kendwa Beach.",
         "body": [
-            "This full-day tour is built around the waters of Mnemba Island Atoll.",
-            "It includes a visit to the aquarium in Nungwi and time on Kendwa Beach.",
+            "The morning is on the water at Mnemba Atoll for snorkelling over coral in clear, shallow water.",
+            "On shore near Nungwi, the natural aquarium — a tidal coral pool — cares for rescued sea turtles you can observe up close. The afternoon settles on Kendwa Beach, known for soft sand and swimming that stays easy through the tide.",
         ],
         "highlights": [
             "Full day",
-            "Mnemba Island Atoll",
-            "Nungwi aquarium and Kendwa Beach",
+            "Mnemba Atoll snorkelling",
+            "Nungwi turtle aquarium and Kendwa Beach",
         ],
     },
     {
@@ -512,7 +524,6 @@ TOURS = [
         ],
     },
 ]
-
 for tour in TOURS:
     source = " ".join(tour["body"] + tour["highlights"]).lower()
     if "full day" in source or "full-day" in source:
@@ -835,9 +846,11 @@ def home():
             <span>Trustpilot</span>
           </li>
         </ul>
-        <h1>Discover.<br>Experience.</h1>
-        <p class="lede">Private journeys across Zanzibar and Tanzania.</p>
-        <a class="btn btn-ivory" href="#experiences">Explore Experiences</a>
+        <div class="hero-copy">
+          <h1>Discover.<br>Experience.</h1>
+          <p class="lede">Private journeys across Zanzibar and Tanzania.</p>
+          <a class="btn btn-ivory" href="#experiences">Explore Experiences</a>
+        </div>
       </div>
     </section>
     <section class="section" id="experiences">
