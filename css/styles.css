@@ -367,7 +367,7 @@ ul { margin: 0; padding: 0; }
 .pkg-media {
   display: block;
   overflow: hidden;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 1 / 1;
   background: #1c221e;
 }
 .pkg-media img {
@@ -510,6 +510,9 @@ ul { margin: 0; padding: 0; }
 .highlights { list-style: none; margin-top: 1.2rem; }
 .highlights li { padding: 0.75rem 0; border-top: 1px solid var(--line); }
 .frame { overflow: hidden; background: var(--sand); }
+.related .frame,
+.pkg-list .pkg-media { aspect-ratio: 1 / 1; }
+.related .frame img { aspect-ratio: 1 / 1; }
 .frame img {
   width: 100%;
   height: 100%;
@@ -524,9 +527,18 @@ ul { margin: 0; padding: 0; }
 .dest-main .frame,
 .dest-stack .frame,
 .dest-row .frame,
-.related .frame,
 .exp-row .frame,
 .purpose-media img { min-height: 240px; height: 62vw; object-fit: cover; }
+.related .frame {
+  aspect-ratio: 1 / 1;
+  height: auto;
+  min-height: 0;
+}
+.related .frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .purpose-media { overflow: hidden; }
 figcaption { padding-top: 0.75rem; }
 figcaption h3 { font-size: 1.7rem; margin-bottom: 0.3rem; }
@@ -682,14 +694,18 @@ textarea { min-height: 6.5rem; resize: vertical; }
     gap: 2.6rem 1.4rem;
   }
   .pkg { border-top: 0; padding: 0; }
-  .pkg-media { aspect-ratio: 3 / 4; }
+  .pkg-media { aspect-ratio: 1 / 1; }
   .pkg:nth-child(5n + 1) { grid-column: 1 / -1; }
-  .pkg:nth-child(5n + 1) .pkg-media { aspect-ratio: 16 / 8; }
+  .pkg:nth-child(5n + 1) .pkg-media {
+    aspect-ratio: 1 / 1;
+    width: min(100%, 560px);
+  }
   .dest-layout { grid-template-columns: 1.3fr 0.9fr; align-items: stretch; }
   .dest-stack { grid-template-rows: 1fr 1fr; }
   .dest-row, .related-grid { grid-template-columns: repeat(3, 1fr); }
   .dest-main .frame { height: 100%; min-height: 560px; }
-  .dest-stack .frame, .dest-row .frame, .related .frame { height: 100%; min-height: 220px; }
+  .dest-stack .frame, .dest-row .frame { height: 100%; min-height: 220px; }
+  .related .frame { aspect-ratio: 1 / 1; height: auto; min-height: 0; }
   .exp-layout, .intro-grid, .bespoke-grid, .purpose-grid, .contact-grid {
     grid-template-columns: 1.05fr 0.95fr;
     gap: 3.5rem;
